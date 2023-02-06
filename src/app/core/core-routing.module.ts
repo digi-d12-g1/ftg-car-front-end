@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthComponent } from '../auth/auth.component';
 import { VehiclesComponent } from '../vehicles/components/vehicles.component';
 
 const routes: Routes = [
   {
     // TODO : revoir ce path ultérieurement
     path: '',
-    component: VehiclesComponent
+    component: AuthComponent
   },
   {
     path: 'vehicle',
