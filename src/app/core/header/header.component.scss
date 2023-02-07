@@ -1,0 +1,28 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+
+    background-color: #D4E8F4;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    height: 8ex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    .logo {
+        position: absolute;
+        height: 12ex;
+        width: 12ex;
+        left: 4ex;
+        top: 2ex;
+    }
+
+    .profil {
+        position: absolute;
+        height: 4ex;
+        width: 4ex;
+        right: 4ex;
+    }
+}

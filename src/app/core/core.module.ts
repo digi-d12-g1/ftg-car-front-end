@@ -4,9 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoreRoutingModule } from './core-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
+    HeaderComponent
   ],
   imports: [
     CommonModule,
@@ -14,10 +17,12 @@ import { RouterModule } from '@angular/router';
     CoreRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    SharedModule
   ],
   exports: [
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HeaderComponent
   ]
 })
 export class CoreModule {
