@@ -1,0 +1,18 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.date-selection {
+  margin-top: 25em;
+}
+
+.vehicle-carousel {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  img {
+    width: 98rem;
+    height: 42rem;
+    object-fit: cover;
+  }
+}
