@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { VehiclesWebService } from 'src/app/core/web-services/vehicles.webservice';
+import { Vehicle } from 'src/app/shared/models/vehicle';
 
 @Component({
   selector: 'app-vehicles',
@@ -9,7 +10,7 @@ import { VehiclesWebService } from 'src/app/core/web-services/vehicles.webservic
 
 export class VehiclesComponent {
 
-  vehicleList: any[] = [];
+  vehicleList: Vehicle[] = [];
 
   constructor(private vehiclesWebService:VehiclesWebService) {
     this.getAllVehicles();
@@ -20,6 +21,10 @@ getAllVehicles() {
     this.vehicleList = data;
     console.log('zizi : ' + data);
   });
+}
+
+deleteVehicleByNumberplate(numberplate: string) {
+  this.vehiclesWebService.deleteVehicleByNumberplate(numberplate).subscribe();
 }
 
 }

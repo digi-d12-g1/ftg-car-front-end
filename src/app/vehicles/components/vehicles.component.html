@@ -1,1 +1,37 @@
-<p>vehicles works!</p>
+<div>
+  <div
+    class="card mb-3"
+    style="max-width: 800px"
+    *ngFor="let vehicle of vehicleList"
+  >
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+          src="{{ vehicle.picture }}"
+          class="img-fluid rounded-start"
+          alt="..."
+          width="300"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ vehicle.brand }} - {{ vehicle.model }}</h5>
+          <p class="card-text">{{ vehicle.numberplate }}</p>
+          <p class="card-text">Statut : {{ vehicle.status }}</p>
+          <p class="card-text">Catégorie : {{ vehicle.category }}</p>
+          <p class="card-text">
+            Places disponibles : {{ vehicle.seatCapacity }}
+          </p>
+          <div class="card-footer">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button class="btn btn-primary me-md-2" type="button">
+                Modifier
+              </button>
+              <button type="button" class="btn btn-danger">Supprimer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
