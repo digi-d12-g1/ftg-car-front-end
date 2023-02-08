@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'booking',
     component: VehiclesListComponent,
     loadChildren: () => import('../booking-vehicles/booking-vehicles.module').then(m => m.BookingVehiclesModule)
+  },
+  {
+    path: 'profil',
+    loadChildren: () => import('../profil/profil.module').then(m => m.ProfilModule)
   }
 ];
 

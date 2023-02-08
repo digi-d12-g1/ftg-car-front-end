@@ -36,15 +36,15 @@ export class CoreModule {
      importé dans le appModule l'application rentrera en conflit (mesure de sécurité)
   */
 
-     constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
+  constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
 
-      if (parentModule) {
+    if (parentModule) {
 
-        throw new Error('CoreModule is already loaded.');
-
-      }
+      throw new Error('CoreModule is already loaded.');
 
     }
+
+  }
 
 }
 
