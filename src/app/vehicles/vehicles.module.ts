@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { VehiclesRoutingModule } from './vehicles-routing.module';
-import { VehiclesComponent } from './components/vehicles.component';
+import { VehiclesComponent } from './components//list/vehicles.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { VehiclesComponent } from './components/vehicles.component';
   ],
   imports: [
     CommonModule,
-    VehiclesRoutingModule
+    VehiclesRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class VehiclesModule { }
