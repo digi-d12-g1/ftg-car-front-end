@@ -1,17 +1,8 @@
-<div>
-  <div
-    class="card mb-3"
-    style="max-width: 800px"
-    *ngFor="let vehicle of vehicleList"
-  >
+<div class="vehicle-container">
+  <div class="card mb-3" style="max-width: 800px" *ngFor="let vehicle of vehicleList">
     <div class="row g-0">
       <div class="col-md-4">
-        <img
-          src="{{ vehicle.picture }}"
-          class="img-fluid rounded-start"
-          alt="..."
-          width="300"
-        />
+        <img src="{{ vehicle.picture }}" class="img-fluid rounded-start" alt="..." width="300" />
       </div>
       <div class="col-md-8">
         <div class="card-body">
