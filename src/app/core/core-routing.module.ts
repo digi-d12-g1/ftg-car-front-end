@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminPageComponent } from '../adminPage/components/admin-page/admin-page.component';
 import { AuthComponent } from '../auth/auth.component';
-import { VehiclesComponent } from '../vehicles/components/vehicles.component';
 import {VehiclesListComponent} from "../booking-vehicles/components/vehicles-list/vehicles-list.component";
 
 const routes: Routes = [
@@ -11,9 +11,9 @@ const routes: Routes = [
     component: AuthComponent
   },
   {
-    path: 'vehicle',
-    component: VehiclesComponent,
-    loadChildren: () => import('../vehicles/vehicles.module').then(m => m.VehiclesModule)
+    path: 'admin',
+    component: AdminPageComponent,
+    loadChildren: () => import('../adminPage/admin-page.module').then(m => m.AdminPageModule)
   },
   {
     path: 'booking',
