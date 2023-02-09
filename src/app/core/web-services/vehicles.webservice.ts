@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Vehicle } from 'src/app/shared/models/vehicle';
 
 @Injectable({
@@ -24,12 +24,17 @@ any: any;
 
   ////////////////////////////////////////////// AddVehicle ///////////////////////////////////////////////////
 
-  addVehicle(newVehicule: Vehicle): Observable<Vehicle> {
-    console.log('web Service', newVehicule)
 
-    this.any = this.http.post<Vehicle>(this.urlBack + 'add', newVehicule)
-    return this.any;
+
+
+  addVehicle(newVehicle: Vehicle) {
+    console.log('web Service', newVehicle)
+    return this.http.post<Vehicle>(this.urlBack + 'add' , newVehicle ) ;
   }
+
+  // testBackVehicle() {
+  //   this.http.post<Vehicle>(this.urlBack + 'add', newVehicle)
+  // }
 
 
   ////////////////////////////////////////////// DeleteById ///////////////////////////////////////////////////
