@@ -14,8 +14,12 @@ export class AppComponent {
     this.location = location;
   }
 
-  checkUrl() : boolean {
+  checkUrlHeader() : boolean {
     return this.location.path() !== '';
+  }
+
+  checkUrlFooter() : boolean {
+    return this.location.path() !== '' && this.location.path() !== '/404';
   }
 
 }
