@@ -30,7 +30,7 @@ export class CreateUpdateVehicleComponent implements OnInit {
       numberplate: [null],
       brand: [null],
       model: [null],
-      vehiculeStatus: [null],
+      vehicleStatus: [null],
       category: [null],
       seatCapacity: [null],
   });
@@ -44,7 +44,7 @@ export class CreateUpdateVehicleComponent implements OnInit {
     // this.vehicle.numberplate = this.vehicleForm.value.numberplate
     // this.vehicle.brand = this.vehicleForm.value.brand
     // this.vehicle.model = this.vehicleForm.value.model
-    // this.vehicle.vehiculeStatus = this.vehicleForm.value.vehiculeStatus
+    // this.vehicle.vehicleStatus = this.vehicleForm.value.vehicleStatus
     // this.vehicle.category = this.vehicleForm.value.category
     // this.vehicle.seatCapacity = this.vehicleForm.value.seatCapacity
     console.log("au clique ajouter je récupère : " , this.vehicle);
