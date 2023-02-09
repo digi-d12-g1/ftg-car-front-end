@@ -2,11 +2,11 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreRoutingModule } from './core-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
-import { SharedModule } from '../shared/shared.module';
 import { FooterComponent } from './footer/footer.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -14,12 +14,14 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent
   ],
   imports: [
-    CommonModule,
-    RouterModule,
     CoreRoutingModule,
+    SharedModule,
+    CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
-    SharedModule
+    RouterModule,
+
   ],
   exports: [
     HttpClientModule,

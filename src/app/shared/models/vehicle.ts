@@ -4,16 +4,17 @@ export class Vehicle {
   numberplate?: string;
   brand?: string;
   model?: string;
-  status?: string;
+  vehiculeStatus?: string;
   category?: string;
   seatCapacity?: number;
 
-  constructor(id?: number,
+  constructor(
+    id?: number,
     picture?: string,
     numberplate?: string,
     brand?: string,
     model?: string,
-    status?: string,
+    vehiculeStatus?: string,
     category?: string,
     seatCapacity?: number) {
       this.id = id;
@@ -21,7 +22,7 @@ export class Vehicle {
       this.numberplate = numberplate;
       this.brand = brand;
       this.model = model;
-      this.status = status;
+      this.vehiculeStatus = vehiculeStatus;
       this.category = category;
       this.seatCapacity = seatCapacity;
   }
