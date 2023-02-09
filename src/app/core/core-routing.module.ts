@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AdminPageComponent } from '../adminPage/components/admin-page/admin-page.component';
-import { AuthComponent } from '../auth/auth.component';
-import { ListVehiclesComponent } from '../shared/components/vehicles/list/listVehicles.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {AdminPageComponent} from '../adminPage/components/admin-page/admin-page.component';
+import {VehiclesListComponent} from "../booking-vehicles/components/vehicles-list/vehicles-list.component";
+import {AuthComponent} from "./auth/auth.component";
 
 const routes: Routes = [
   {

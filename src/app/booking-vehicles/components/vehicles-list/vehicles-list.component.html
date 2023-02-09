@@ -1,22 +1,47 @@
 <div class="date-selection">
-
+  <h3>Réserver une voiture</h3>
+  <form class="form-container">
+    <div class="date-container">
+      <div class="date-pick">
+        <p class="title">Début</p>
+        <input
+          placeholder="Date de début"
+          name="start"
+          [(ngModel)]="startDate"
+          ngbDatepicker
+          #start="ngbDatepicker"
+        />
+        <button class="btn btn-outline-secondary bi bi-calendar" (click)="start.toggle()" type="button"></button>
+        <ngb-timepicker class="start" [ngModel]="startTime" [ngModelOptions]="{standalone: true}"></ngb-timepicker>
+      </div>
+      <div class="line"></div>
+      <div class="date-pick">
+        <p class="title end">Fin</p>
+        <input
+          placeholder="Date de fin"
+          name="end"
+          [(ngModel)]="endDate"
+          ngbDatepicker
+          #end="ngbDatepicker"
+        />
+        <button class="btn btn-outline-secondary bi bi-calendar" (click)="end.toggle()" type="button"></button>
+        <ngb-timepicker [ngModel]="endTime" [ngModelOptions]="{standalone: true}"></ngb-timepicker>
+      </div>
+    </div>
+    <button type="submit">Rechercher</button>
+  </form>
 </div>
-
 <hr>
 
 <div class="vehicle-carousel">
-  <ngb-carousel
-    *ngIf="images"
-    [showNavigationArrows]="true"
-    [showNavigationIndicators]="showNavigationIndicators"
-  >
-    <ng-template ngbSlide *ngFor="let image of images">
+  <ngb-carousel *ngIf="vehicles.length > 0">
+    <ng-template ngbSlide *ngFor="let vehicle of vehicles">
       <div class="picsum-img-wrapper">
-        <img src="{{image}}" alt="Random slide" />
+        <img src="{{ vehicle.picture }}" alt="Random slide"/>
       </div>
       <div class="carousel-caption">
-        <h3>No mouse navigation</h3>
-        <p>This carousel hides navigation arrows and indicators.</p>
+        <h3> {{vehicle.brand }} {{ vehicle.model }}</h3>
+        <p>Places : {{ vehicle.seatCapacity }}</p>
       </div>
     </ng-template>
   </ngb-carousel>
