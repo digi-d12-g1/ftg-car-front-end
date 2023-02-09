@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminPageComponent } from '../adminPage/components/admin-page/admin-page.component';
 import { AuthComponent } from '../auth/auth.component';
-import {VehiclesListComponent} from "../booking-vehicles/components/vehicles-list/vehicles-list.component";
+import { ListVehiclesComponent } from '../shared/components/vehicles/list/listVehicles.component';
 
 const routes: Routes = [
   {
@@ -23,7 +23,11 @@ const routes: Routes = [
   {
     path: 'profil',
     loadChildren: () => import('../profil/profil.module').then(m => m.ProfilModule)
-  }
+  },
+  {
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full'},
 ];
 
 @NgModule({
