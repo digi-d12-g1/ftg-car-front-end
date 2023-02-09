@@ -4,7 +4,7 @@ export class Vehicle {
   numberplate?: string;
   brand?: string;
   model?: string;
-  vehiculeStatus?: string;
+  vehicleStatus?: string;
   category?: string;
   seatCapacity?: number;
 
@@ -14,7 +14,7 @@ export class Vehicle {
     numberplate?: string,
     brand?: string,
     model?: string,
-    vehiculeStatus?: string,
+    vehicleStatus?: string,
     category?: string,
     seatCapacity?: number) {
       this.id = id;
@@ -22,7 +22,7 @@ export class Vehicle {
       this.numberplate = numberplate;
       this.brand = brand;
       this.model = model;
-      this.vehiculeStatus = vehiculeStatus;
+      this.vehicleStatus = vehicleStatus;
       this.category = category;
       this.seatCapacity = seatCapacity;
   }
