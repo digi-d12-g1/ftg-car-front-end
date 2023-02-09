@@ -16,17 +16,13 @@ const routes: Routes = [
     loadChildren: () => import('../adminPage/admin-page.module').then(m => m.AdminPageModule)
   },
   {
+    path: 'profil',
+    loadChildren: () => import('../profil/profil.module').then(m => m.ProfilModule)
+  },
+  {
     path: '',
     redirectTo: '',
-    pathMatch: 'full'
-    path: 'vehicle',
-    component: VehiclesComponent,
-    loadChildren: () => import('../vehicles/vehicles.module').then(m => m.VehiclesModule)
-  },
-  { 
-    path: 'profil',
-    loadChildren: () => import('../profil/profil.module').then(m => m.ProfilModule) 
-  }
+    pathMatch: 'full'},
 ];
 
 @NgModule({
