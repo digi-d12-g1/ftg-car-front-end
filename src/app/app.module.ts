@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthComponent } from './auth/auth.component';
+import { AuthComponent } from './core/auth/auth.component';
 import { CoreModule } from './core/core.module';
 
 @NgModule({
