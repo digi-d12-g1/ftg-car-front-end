@@ -19,6 +19,13 @@ const routes: Routes = [
     path: '',
     redirectTo: '',
     pathMatch: 'full'
+    path: 'vehicle',
+    component: VehiclesComponent,
+    loadChildren: () => import('../vehicles/vehicles.module').then(m => m.VehiclesModule)
+  },
+  { 
+    path: 'profil',
+    loadChildren: () => import('../profil/profil.module').then(m => m.ProfilModule) 
   }
 ];
 
