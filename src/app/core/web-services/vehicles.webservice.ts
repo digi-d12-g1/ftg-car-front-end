@@ -21,16 +21,19 @@ any: any;
     return this.http.get<Vehicle[]>(this.urlBack + 'findAll');
   }
 
-
   ////////////////////////////////////////////// AddVehicle ///////////////////////////////////////////////////
-
-
 
 
   addVehicle(newVehicle: Vehicle) {
     return this.http.post<Vehicle>(this.urlBack + 'add' , newVehicle ) ;
   }
 
+    ////////////////////////////////////////////// UpdateVehicle ///////////////////////////////////////////////////
+
+    updateVehicle(idVehicle: number, updateVehicle: Vehicle) {
+      console.log('Web service id update', updateVehicle )
+      return this.http.put<Vehicle>(this.urlBack + 'update/' + idVehicle , updateVehicle ) ;
+    }
 
   ////////////////////////////////////////////// DeleteById ///////////////////////////////////////////////////
 

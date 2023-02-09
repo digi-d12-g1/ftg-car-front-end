@@ -1,4 +1,8 @@
 <h2>Liste des véhicules</h2>
+<div>
+  <button type="button" class="btn btn-outline-success btn-lg" [routerLink]="['create-update']">Ajouter un nouveau
+    véhicule</button>
+</div>
 <form>
   <div>
     <div class="card mb-3" style="max-width: 800px" *ngFor="let vehicle of vehicleList">
@@ -19,9 +23,11 @@
             </p>
             <div class="card-footer">
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button class="btn btn-primary me-md-2" type="button" [routerLink]="['create-update']">
+                <button class="btn btn-primary me-md-2" type="button" [routerLink]="['create-update']"
+                  (click)="updateVehicle( vehicle )">
                   Modifier
                 </button>
+
                 <button type="button" (click)="deleteVehicleById( vehicle.id )"
                   class="btn btn-danger">Supprimer</button>
               </div>
