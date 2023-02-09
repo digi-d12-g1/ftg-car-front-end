@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {AdminPageComponent} from '../adminPage/components/admin-page/admin-page.component';
 import {VehiclesListComponent} from "../booking-vehicles/components/vehicles-list/vehicles-list.component";
 import {AuthComponent} from "./auth/auth.component";
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,17 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '',
-    pathMatch: 'full'},
+    pathMatch: 'full'
+  },
+  {
+    path: '404',
+    component: NotFoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: '404',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
