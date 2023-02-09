@@ -8,11 +8,14 @@
           placeholder="Date de début"
           name="start"
           [(ngModel)]="startDate"
+          (ngModelChange)="checkDate()"
+          [markDisabled]="checkIfStartDateNotPassed"
+          readonly
           ngbDatepicker
           #start="ngbDatepicker"
         />
         <button class="btn btn-outline-secondary bi bi-calendar" (click)="start.toggle()" type="button"></button>
-        <ngb-timepicker class="start" [ngModel]="startTime" [ngModelOptions]="{standalone: true}"></ngb-timepicker>
+        <ngb-timepicker [ngModel]="startTime" [ngModelOptions]="{standalone: true}"></ngb-timepicker>
       </div>
       <div class="line"></div>
       <div class="date-pick">
@@ -21,10 +24,13 @@
           placeholder="Date de fin"
           name="end"
           [(ngModel)]="endDate"
+          (ngModelChange)="checkDate()"
+          [minDate]="startDate"
+          readonly
           ngbDatepicker
           #end="ngbDatepicker"
         />
-        <button class="btn btn-outline-secondary bi bi-calendar" (click)="end.toggle()" type="button"></button>
+        <button [disabled]="!startDate" class="btn btn-outline-secondary bi bi-calendar" (click)="end.toggle()" type="button"></button>
         <ngb-timepicker [ngModel]="endTime" [ngModelOptions]="{standalone: true}"></ngb-timepicker>
       </div>
     </div>
