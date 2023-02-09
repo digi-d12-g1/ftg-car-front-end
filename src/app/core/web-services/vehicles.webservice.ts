@@ -28,19 +28,14 @@ any: any;
 
 
   addVehicle(newVehicle: Vehicle) {
-    console.log('web Service', newVehicle)
     return this.http.post<Vehicle>(this.urlBack + 'add' , newVehicle ) ;
   }
-
-  // testBackVehicle() {
-  //   this.http.post<Vehicle>(this.urlBack + 'add', newVehicle)
-  // }
 
 
   ////////////////////////////////////////////// DeleteById ///////////////////////////////////////////////////
 
-  deleteVehicleByNumberplate(numberplate: string): Observable<Vehicle>{
-    return this.http.delete<Vehicle>(this.urlBack + 'delete/' + numberplate);
+  deleteVehicleById(idVehicle: number){
+    return this.http.delete<number>(this.urlBack + 'delete/' + idVehicle);
   }
 
 }

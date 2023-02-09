@@ -40,14 +40,6 @@ export class CreateUpdateVehicleComponent implements OnInit {
 
   onSubmitForm() {
     this.vehicle = this.vehicleForm.value
-    // this.vehicle.picture = this.vehicleForm.value.picture
-    // this.vehicle.numberplate = this.vehicleForm.value.numberplate
-    // this.vehicle.brand = this.vehicleForm.value.brand
-    // this.vehicle.model = this.vehicleForm.value.model
-    // this.vehicle.vehicleStatus = this.vehicleForm.value.vehicleStatus
-    // this.vehicle.category = this.vehicleForm.value.category
-    // this.vehicle.seatCapacity = this.vehicleForm.value.seatCapacity
-    console.log("au clique ajouter je récupère : " , this.vehicle);
     this.addVehicle(this.vehicle)
 }
 
@@ -55,7 +47,6 @@ export class CreateUpdateVehicleComponent implements OnInit {
   ////////////////////////////////////////////// AddVehicle ///////////////////////////////////////////////////
 
   addVehicle(vehicle: Vehicle){
-    console.log('create-update', vehicle)
    this.vehiclesWebService.addVehicle(vehicle).subscribe();
    };
 
