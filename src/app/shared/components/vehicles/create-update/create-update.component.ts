@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { VehiclesWebService } from 'src/app/core/web-services/vehicles.webservice';
 import { Vehicle } from 'src/app/shared/models/vehicle';
 import { UpdateVehicleService } from 'src/app/shared/services/update-vehicle/update-vehicle.service';
@@ -18,6 +18,7 @@ export class CreateUpdateVehicleComponent implements OnInit {
 vehicle: Vehicle = new Vehicle;
 updateVehicleSubscription!: Subscription;
 vehicleId: any;
+faceSnapPreview$!: Observable<Vehicle>;
 
   // id!: number;
   // isNew: Boolean = false;
@@ -37,6 +38,7 @@ this.getVehicleToUpdate();
 console.log('vehicle à modifier : ' , this.vehicle.id)
 this.vehicleId = this.vehicle.id;
 this.updateVehicleGet();
+this.faceSnapPreview$ = this.vehicleForm.valueChanges;
 
   }
 
