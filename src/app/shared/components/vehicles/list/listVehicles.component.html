@@ -1,3 +1,4 @@
+<h2>Liste des véhicules</h2>
 <form>
   <div>
     <div class="card mb-3" style="max-width: 800px" *ngFor="let vehicle of vehicleList">
@@ -17,7 +18,7 @@
             </p>
             <div class="card-footer">
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button class="btn btn-primary me-md-2" type="button">
+                <button class="btn btn-primary me-md-2" type="button" [routerLink]="['create-update']">
                   Modifier
                 </button>
                 <button type="button" (click)="deleteVehicleByNumberplate( vehicle.numberplate )"

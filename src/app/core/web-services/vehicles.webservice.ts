@@ -9,6 +9,7 @@ import { Vehicle } from 'src/app/shared/models/vehicle';
 export class VehiclesWebService {
 
 urlBack: string;
+any: any;
 
   constructor(private http: HttpClient) {
     this.urlBack = 'http://localhost:4444/api/vehicles/';
@@ -23,8 +24,11 @@ urlBack: string;
 
   ////////////////////////////////////////////// AddVehicle ///////////////////////////////////////////////////
 
-  addVehicle(newVehicule: any): Observable<Vehicle>{
-    return this.http.post<Vehicle>(this.urlBack + 'add/' , newVehicule);
+  addVehicle(newVehicule: Vehicle): Observable<Vehicle> {
+    console.log('web Service', newVehicule)
+
+    this.any = this.http.post<Vehicle>(this.urlBack + 'add', newVehicule)
+    return this.any;
   }
 
 

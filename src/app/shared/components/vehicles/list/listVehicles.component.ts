@@ -1,49 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { VehiclesWebService } from 'src/app/core/web-services/vehicles.webservice';
 import { Vehicle } from 'src/app/shared/models/vehicle';
 
 @Component({
   selector: 'app-listVehicles',
-  templateUrl: './vehicles.component.html',
-  styleUrls: ['./vehicles.component.scss']
+  templateUrl: './listVehicles.component.html',
+  styleUrls: ['./listVehicles.component.scss']
 })
 
-export class VehiclesComponent implements OnInit {
+export class ListVehiclesComponent implements OnInit {
 
   vehicleList: Vehicle[] = [];
-  vehicleForm!: FormGroup;
   vehicleNumberplate!: number;
-  vehicle: Vehicle = new Vehicle;
 
-  constructor(private vehiclesWebService:VehiclesWebService, private dormBuilder: FormBuilder) {
+  constructor(private vehiclesWebService:VehiclesWebService, private router: Router) {
 
   }
 
   ngOnInit(): void {
     this.getAllVehicles();
 
-  this.addVehicle();
   }
-// Reactive form pour modifier / ajouter
-  // formBuilder() {
-  //   this.vehicleForm = this.formBuilder.group({
-  //     id: [null],
-  //     picture: [null],
-  //     numberplate: [null],
-  //     brand: [null],
-  //     model: [null],
-  //     vehiculeStatus: [null],
-  //     category: [null],
-  //     seatCapacity: [null],
-  // });
-  // }
 
 
 
-//   onSubmitForm() {
-//     console.log(this.vehicleForm.value);
-// }
+
 
 ////////////////////////////////////////////// Find All ///////////////////////////////////////////////////
 getAllVehicles() {
@@ -53,11 +36,6 @@ getAllVehicles() {
   });
 }
 
- ////////////////////////////////////////////// AddVehicle ///////////////////////////////////////////////////
-
- addVehicle(){
-  this.vehiclesWebService.addVehicle(this.vehicle).subscribe();
-  };
 
 ////////////////////////////////////////////// DeleteById ///////////////////////////////////////////////////
 

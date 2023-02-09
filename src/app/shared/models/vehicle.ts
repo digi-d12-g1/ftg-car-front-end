@@ -8,7 +8,8 @@ export class Vehicle {
   category?: string;
   seatCapacity?: number;
 
-  constructor(id?: number,
+  constructor(
+    id?: number,
     picture?: string,
     numberplate?: string,
     brand?: string,
