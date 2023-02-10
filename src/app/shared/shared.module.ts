@@ -4,8 +4,9 @@ import { CreateUpdateVehicleComponent } from './components/vehicles/create-updat
 import { ListVehiclesComponent } from './components/vehicles/list/listVehicles.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { NavButtonComponent } from './nav-button/nav-button.component';
+import { ListEmployeesComponent } from './components/employees/list/listEmployees.component';
+import { CreateUpdateEmployeeComponent } from './components/employees/create-update/create-update.component';
 
 
 @NgModule({
@@ -15,7 +16,11 @@ import { NavButtonComponent } from './nav-button/nav-button.component';
 
     //Vehicles
     ListVehiclesComponent,
-    CreateUpdateVehicleComponent
+    CreateUpdateVehicleComponent,
+
+    //Employees
+    ListEmployeesComponent,
+    CreateUpdateEmployeeComponent
 
   ],
   imports: [
