@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmployeesWebService } from 'src/app/core/web-services/employees.webservice';
 import { Employee } from 'src/app/shared/models/employee';
+import { UpdateEmployeeService } from 'src/app/shared/services/update-employee/update-employee.service';
 
 @Component({
   selector: 'app-listEmployees',
@@ -14,7 +15,10 @@ export class ListEmployeesComponent implements OnInit {
   employeeList: Employee[] = [];
   employeeId!: number;
 
-  constructor(private employeesWebService:EmployeesWebService, private router: Router) {
+  constructor(
+    private employeesWebService: EmployeesWebService,
+    private updateEmployeeService: UpdateEmployeeService,
+    private router: Router) {
 
   }
 
@@ -32,6 +36,10 @@ export class ListEmployeesComponent implements OnInit {
   deleteEmployeeById(idEmployee: any) {
     this.employeeId = +idEmployee // le + ici parse le any en number
     this.employeesWebService.deleteEmployeeById(this.employeeId).subscribe();
+  }
+
+  updateEmployee(employeeToUpdate: Employee) {
+    this.updateEmployeeService.sendEmployeeToUpdate(employeeToUpdate);
   }
 
 }
