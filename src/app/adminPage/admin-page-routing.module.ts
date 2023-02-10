@@ -28,7 +28,7 @@ const routes: Routes = [{
     },
     //TODO : repasser sur les routes Employee (ne marche pas encore)
     {
-      path: 'users',
+      path: 'employees',
       component: ListEmployeesComponent,
     },
     {

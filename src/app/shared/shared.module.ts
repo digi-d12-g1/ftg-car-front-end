@@ -13,7 +13,6 @@ import { CreateUpdateEmployeeComponent } from './components/employees/create-upd
   declarations: [
     NavButtonComponent,
 
-
     //Vehicles
     ListVehiclesComponent,
     CreateUpdateVehicleComponent,
@@ -41,7 +40,11 @@ import { CreateUpdateEmployeeComponent } from './components/employees/create-upd
 
     //Vehicles
     ListVehiclesComponent,
-    CreateUpdateVehicleComponent
+    CreateUpdateVehicleComponent,
+
+    //Employees
+    ListEmployeesComponent,
+    CreateUpdateEmployeeComponent
   ]
 })
 export class SharedModule { }
