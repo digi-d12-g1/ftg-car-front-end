@@ -15,7 +15,12 @@
           #start="ngbDatepicker"
         />
         <button class="btn btn-outline-secondary bi bi-calendar" (click)="start.toggle()" type="button"></button>
-        <ngb-timepicker [ngModel]="startTime" [ngModelOptions]="{standalone: true}"></ngb-timepicker>
+
+        <ngb-timepicker
+          (ngModelChange)="checkTime()"
+          [(ngModel)]="startTime"
+          [readonlyInputs]="true"
+          [ngModelOptions]="{standalone: true, updateOn: 'change'}"></ngb-timepicker>
       </div>
       <div class="line"></div>
       <div class="date-pick">
@@ -30,8 +35,13 @@
           ngbDatepicker
           #end="ngbDatepicker"
         />
-        <button [disabled]="!startDate" class="btn btn-outline-secondary bi bi-calendar" (click)="end.toggle()" type="button"></button>
-        <ngb-timepicker [ngModel]="endTime" [ngModelOptions]="{standalone: true}"></ngb-timepicker>
+        <button [disabled]="!startDate" class="btn btn-outline-secondary bi bi-calendar" (click)="end.toggle()"
+                type="button"></button>
+        <ngb-timepicker
+          (ngModelChange)="checkTime()"
+          [(ngModel)]="endTime"
+          [readonlyInputs]="true"
+          [ngModelOptions]="{standalone: true, updateOn: 'change'}"></ngb-timepicker>
       </div>
     </div>
     <button type="submit">Rechercher</button>
@@ -48,8 +58,38 @@
       <div class="carousel-caption">
         <h3> {{vehicle.brand }} {{ vehicle.model }}</h3>
         <p>Places : {{ vehicle.seatCapacity }}</p>
+        <button (click)="getBookingInfo(vehicle)" data-bs-toggle="modal" data-bs-target="#createBookingModal"
+                type="button">Réserver
+        </button>
       </div>
     </ng-template>
   </ngb-carousel>
+</div>
+
+<div class="modal fade" aria-labelledby="createBookingModalLabel" aria-hidden="true" id="createBookingModal">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Valider la réservation ?</h3>
+      </div>
+      <br>
+      <p class="title">Date de début</p>
+      <div class="modal-info">
+        <p>{{locationStart | date}} à {{locationStart | date: 'shortTime'}}</p>
+      </div>
+      <p class="title">Date de fin</p>
+      <div class="modal-info">
+        <p>{{locationEnd | date}} à {{locationEnd | date: 'shortTime'}}</p>
+      </div>
+      <p class="title">Véhicule</p>
+      <div class="modal-info">
+        <p>{{vehicle.brand}} {{vehicle.model}} avec {{vehicle.seatCapacity}} places</p>
+      </div>
+      <div class="button-container">
+        <button type="submit" data-bs-dismiss="modal" (click)="addBooking(vehicle)">Confirmer</button>
+        <button type="button" data-bs-dismiss="modal">Annuler</button>
+      </div>
+    </div>
+  </div>
 </div>
 

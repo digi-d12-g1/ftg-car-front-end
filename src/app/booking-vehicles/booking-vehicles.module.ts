@@ -1,7 +1,12 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {VehiclesListComponent} from './components/vehicles-list/vehicles-list.component';
-import {NgbCarouselConfig, NgbCarouselModule, NgbDatepickerModule, NgbTimepicker} from "@ng-bootstrap/ng-bootstrap";
+import {
+  NgbCarouselConfig,
+  NgbCarouselModule,
+  NgbDatepickerModule,
+  NgbTimepickerModule
+} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule} from "@angular/forms";
 
 
@@ -14,7 +19,7 @@ import {FormsModule} from "@angular/forms";
     NgbCarouselModule,
     FormsModule,
     NgbDatepickerModule,
-    NgbTimepicker
+    NgbTimepickerModule
   ],
   providers: [NgbCarouselConfig]
 })
