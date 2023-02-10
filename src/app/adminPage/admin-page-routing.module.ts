@@ -23,7 +23,7 @@ const routes: Routes = [{
     component: ListVehiclesComponent
     },
     {
-      path: 'create-update',
+      path: 'vehicles/create-update',
       component: CreateUpdateVehicleComponent
     },
     //TODO : repasser sur les routes Employee (ne marche pas encore)
@@ -32,7 +32,7 @@ const routes: Routes = [{
       component: ListEmployeesComponent,
     },
     {
-      path: 'create-update',
+      path: 'employees/create-update',
       component: CreateUpdateEmployeeComponent
     }
   ]

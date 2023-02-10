@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { EmployeesWebService } from 'src/app/core/web-services/employees.webservice';
 import { Employee } from 'src/app/shared/models/employee';
+import { UpdateEmployeeService } from 'src/app/shared/services/update-employee/update-employee.service';
 
 @Component({
   selector: 'app-create-update',
@@ -19,19 +20,29 @@ export class CreateUpdateEmployeeComponent implements OnInit {
   faceSnapPreview$!: Observable<Employee>;
 
   constructor(
-    private employeesWebService: EmployeesWebService, private router: Router, private formBuilder: FormBuilder) {
+    private updateEmployeeService: UpdateEmployeeService,
+    private employeesWebService: EmployeesWebService,
+    private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
     this.getEmployeeToUpdate();
     this.employeeId = this.employee.id;
-    //this.updateEmployeeGet();
+    this.formBuilderAddOrUpdateEmployee();
     this.faceSnapPreview$ = this.employeeForm.valueChanges;
   }
 
+  onSubmit(): void {
+    console.log('Ajout avec succès : ', this.employeeForm.value);
+  }
 
-// Reactive form pour modifier / ajouter
-  formBuilderAddEmployee() {
+  private getEmployeeToUpdate() {
+    this.updateEmployeeSubscription = this.updateEmployeeService.employeeService.subscribe( (data: Employee) => {
+      this.employee = data;
+    })
+  }
+
+  formBuilderAddOrUpdateEmployee() {
     this.employeeForm = this.formBuilder.group({
       username: [null],
       password: [null]
@@ -43,16 +54,18 @@ export class CreateUpdateEmployeeComponent implements OnInit {
     this.addEmployee(this.employee)
   }
 
+  onSubmitFormToUpdate() {
+    this.employee = this.employeeForm.value
+    this.updateEmployeePost(this.employee);
+  }
+
+  updateEmployeePost(employee: Employee) {
+    employee.id = this.employeeId
+    this.employeesWebService.updateEmployee(this.employeeId, employee).subscribe();
+  }
+
   addEmployee(employee: Employee){
     this.employeesWebService.addNewEmployee(employee).subscribe();
   };
-
-  private getEmployeeToUpdate() {
-    //this.updateEmployeeSubscription = this.upd
-  }
-
-  ////////////////////////////////////////////// AddEmployee ///////////////////////////////////////////////////
-
-
 
 }

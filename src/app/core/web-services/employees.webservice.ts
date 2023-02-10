@@ -36,10 +36,9 @@ deleteEmployeeById(idEmployee: number) {
   return this.http.delete<number>(this.urlBack + 'delete/' + idEmployee);
 }
 
-////////////////////////////////////////////// updateEmployeeById ///////////////////////////////////////////////////
+////////////////////////////////////////////// updateEmployee ///////////////////////////////////////////////////
 
-//TODO : Revoir
-updateEmployeeById(updatedEmployee: Employee, idEmployee: number) {
+updateEmployee(idEmployee: number, updatedEmployee: Employee) {
   return this.http.put<Employee>(this.urlBack + 'update/' + idEmployee, updatedEmployee);
 }
 
