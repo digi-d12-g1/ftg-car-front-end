@@ -1,4 +1,8 @@
 <h2>Liste des véhicules</h2>
+<div>
+  <button type="button" class="btn btn-outline-success btn-lg" [routerLink]="['create-update']">Ajouter un nouveau
+    véhicule</button>
+</div>
 <form>
   <div>
     <div class="card mb-3" style="max-width: 800px" *ngFor="let vehicle of vehicleList">
@@ -8,20 +12,23 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">{{ vehicle.brand }} - {{ vehicle.model }}</h5>
-            <p class="card-text" id="vehicleNumberplate" name="vehicleNumberplate" type="text">{{ vehicle.numberplate }}
+            <h5 class="card-title">{{ vehicle.brand }} - {{ vehicle.model }} </h5>
+
+            <p class="card-text" type="text">{{ vehicle.numberplate }}
             </p>
-            <p class="card-text">Statut : {{ vehicle.vehiculeStatus }}</p>
+            <p class="card-text">Statut : {{ vehicle.vehicleStatus }}</p>
             <p class="card-text">Catégorie : {{ vehicle.category }}</p>
             <p class="card-text">
               Places disponibles : {{ vehicle.seatCapacity }}
             </p>
             <div class="card-footer">
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button class="btn btn-primary me-md-2" type="button" [routerLink]="['create-update']">
+                <button class="btn btn-primary me-md-2" type="button" [routerLink]="['create-update']"
+                  (click)="updateVehicle( vehicle )">
                   Modifier
                 </button>
-                <button type="button" (click)="deleteVehicleByNumberplate( vehicle.numberplate )"
+
+                <button type="button" (click)="deleteVehicleById( vehicle.id )"
                   class="btn btn-danger">Supprimer</button>
               </div>
             </div>

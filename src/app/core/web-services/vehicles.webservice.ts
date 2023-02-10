@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Vehicle } from 'src/app/shared/models/vehicle';
 
 @Injectable({
@@ -21,21 +21,24 @@ any: any;
     return this.http.get<Vehicle[]>(this.urlBack + 'findAll');
   }
 
-
   ////////////////////////////////////////////// AddVehicle ///////////////////////////////////////////////////
 
-  addVehicle(newVehicule: Vehicle): Observable<Vehicle> {
-    console.log('web Service', newVehicule)
 
-    this.any = this.http.post<Vehicle>(this.urlBack + 'add', newVehicule)
-    return this.any;
+  addVehicle(newVehicle: Vehicle) {
+    return this.http.post<Vehicle>(this.urlBack + 'add' , newVehicle ) ;
   }
 
+    ////////////////////////////////////////////// UpdateVehicle ///////////////////////////////////////////////////
+
+    updateVehicle(idVehicle: number, updateVehicle: Vehicle) {
+      console.log('Web service id update', updateVehicle )
+      return this.http.put<Vehicle>(this.urlBack + 'update/' + idVehicle , updateVehicle ) ;
+    }
 
   ////////////////////////////////////////////// DeleteById ///////////////////////////////////////////////////
 
-  deleteVehicleByNumberplate(numberplate: string): Observable<Vehicle>{
-    return this.http.delete<Vehicle>(this.urlBack + 'delete/' + numberplate);
+  deleteVehicleById(idVehicle: number){
+    return this.http.delete<number>(this.urlBack + 'delete/' + idVehicle);
   }
 
 }

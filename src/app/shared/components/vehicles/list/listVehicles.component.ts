@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { VehiclesWebService } from 'src/app/core/web-services/vehicles.webservice';
 import { Vehicle } from 'src/app/shared/models/vehicle';
+import { UpdateVehicleService } from 'src/app/shared/services/update-vehicle/update-vehicle.service';
 
 @Component({
   selector: 'app-listVehicles',
@@ -13,9 +14,9 @@ import { Vehicle } from 'src/app/shared/models/vehicle';
 export class ListVehiclesComponent implements OnInit {
 
   vehicleList: Vehicle[] = [];
-  vehicleNumberplate!: number;
+  vehicleId!: number;
 
-  constructor(private vehiclesWebService:VehiclesWebService, private router: Router) {
+  constructor(private vehiclesWebService:VehiclesWebService, private udateVehicleService: UpdateVehicleService, private router: Router) {
 
   }
 
@@ -32,7 +33,6 @@ export class ListVehiclesComponent implements OnInit {
 getAllVehicles() {
   this.vehiclesWebService.getAllVehicles().subscribe(data => {
     this.vehicleList = data;
-    console.log('zizi : ' + data);
   });
 }
 
@@ -40,9 +40,17 @@ getAllVehicles() {
 ////////////////////////////////////////////// DeleteById ///////////////////////////////////////////////////
 
 
-deleteVehicleByNumberplate(numberplate: any) {
-  console.log('Réception du NumberPlate pour suppression' + numberplate)
-  this.vehiclesWebService.deleteVehicleByNumberplate(numberplate).subscribe();
+deleteVehicleById(idVehicle: any) {
+  this.vehicleId = +idVehicle; // le + ici parse le any en number
+  this.vehiclesWebService.deleteVehicleById(this.vehicleId).subscribe();
 }
+
+////////////////////////////////////////////// UpdateVehicule Envoi vers la page de modification ///////////////////////////////////////////////////
+
+updateVehicle( vehicleToUpdate: Vehicle) {
+  this.udateVehicleService.sendVehicleToUpdate(vehicleToUpdate);
+}
+
+
 
 }
