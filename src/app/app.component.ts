@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ftg-car-front-end';
+  location: Location;
+
+  constructor(location: Location) {
+    this.location = location;
+  }
+
+  checkUrlHeader() : boolean {
+    return this.location.path() !== '';
+  }
+
+  checkUrlFooter() : boolean {
+    return this.location.path() !== '' && this.location.path() !== '/404';
+  }
+
 }

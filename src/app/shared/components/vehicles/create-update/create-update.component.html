@@ -1,0 +1,91 @@
+<div class="jumbotron jumbotron-fluid">
+
+  <div class="container mx-auto">
+    <h1 class="display-4 text-center">Ajouter ou modifier un vehicle</h1>
+  </div>
+</div>
+
+<div class="container ">
+  <form [formGroup]="vehicleForm" (ngSubmit)="onSubmit()">
+    <div class="action-buttons ">
+      <button type="submit" class="btn btn-primary" (click)="onSubmitFormToAdd()">
+        Ajouter le nouveau véhicule
+      </button>
+      <button type="submit" class="btn btn-primary" (click)="onSubmitFormToUpdate()">
+        Accepter les modifications
+      </button>
+    </div>
+
+    <div class="form-group" *ngIf="faceSnapPreview$ | async as readDirectly">
+
+      <label class="col-md-4" for="picture">Lien pour photo du véhicule</label>
+
+      <input type="text" class="form-control" aria-label="With textarea" id="picture" formControlName="picture"
+        [(ngModel)]="vehicle.picture">
+
+      <div class="col-md-4">
+        <img src="{{ vehicle.picture }}" class="img-fluid rounded-start" alt="Optimus Prime" width="300" />
+      </div>
+
+      <!-- mettre en ngIf -->
+
+      <div class="col-md-4">
+        <img src="{{ readDirectly.picture }}" class="img-fluid rounded-start" alt="Optimus Prime" width="300" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4" for="numberplate">Numéro de plaque d'immatriculation</label>
+      <input class="form-control" type="text" id="numberplate" formControlName="numberplate"
+        [(ngModel)]="vehicle.numberplate">
+    </div>
+
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
+        aria-describedby="button-addon2">
+      <button class="btn-close btn-outline-secondary" aria-label="Close" type="button" id="button-addon2"></button>
+
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4" for="brand">Marque</label>
+      <input type="text" class="form-control" id="brand" formControlName="brand" [(ngModel)]="vehicle.brand">
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4" for="model">Modèle</label>
+      <input type="text" class="form-control" id="model" formControlName="model" [(ngModel)]="vehicle.model">
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4" for="vehicleStatus">Status</label>
+      <input type="text" class="form-control" id="vehicleStatus" formControlName="vehicleStatus"
+        [(ngModel)]="vehicle.vehicleStatus">
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4" for="category">Catégorie</label>
+      <input type="text" class="form-control" id="category" formControlName="category" [(ngModel)]="vehicle.category">
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4" for="seatCapacity">Nombre de siège</label>
+      <input type="number" class="form-control" id="seatCapacity" formControlName="seatCapacity"
+        [(ngModel)]="vehicle.seatCapacity">
+    </div>
+
+    <div class="action-buttons">
+      <button type="submit" class="btn btn-primary" (click)="onSubmitFormToAdd()">
+        Ajouter le nouveau véhicule
+      </button>
+      <button type="submit" class="btn btn-primary" (click)="onSubmitFormToUpdate()">
+        Accepter les modifications
+      </button>
+    </div>
+  </form>
+</div>
+
+<div class="form-group" *ngIf="faceSnapPreview$ | async as joseoh">
+
+
+</div>

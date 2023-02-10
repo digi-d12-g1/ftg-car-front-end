@@ -1,0 +1,116 @@
+.booking-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    header > h1 {
+        text-align: center;
+
+        font-size: 2.5em;
+        font-weight: 600;
+        margin-bottom: 1em;
+        padding: 0;
+        margin: 0;
+    }
+
+    header {
+        div {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+            
+            gap: 5ex;
+            margin: 2ex 0 2ex 0;
+
+            button {
+                width: 30ex;
+                border: 0;
+                background-color: #d4e8f4;
+                height: 5ex;
+                border-radius: 1ex;
+
+                p {
+                    padding: 0;
+                    margin: 0;
+                    height: 3ex;
+                    font-weight: 500;
+                }
+            }
+
+            button:active {
+                box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+        }
+    }
+
+    main {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        height: 60%;
+
+        aside {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            
+            width: 40ex;
+            height: 100%;
+            border-right: 0.3ex solid #d4e8f4;
+            padding: 0 2ex 0 2ex;
+            gap: 2ex;
+
+            h3 {
+                padding: 0;
+                margin: 0;
+                font-size: 2ex;
+                font-weight: 600;
+            }
+
+            button {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                border: 0;
+                
+                width: 100%;
+                height: 6ex;
+                padding: 0 2ex 0 2ex;
+                border-radius: 1ex;
+
+                p {
+                    padding: 0;
+                    margin: 0;
+                    height: 3ex;
+                    font-size: 1.5ex;
+                }
+            }
+
+            .current {
+                background-color: #d4e8f4;
+            }
+
+            .finish {
+                background-color: #d9d9d9;
+            }
+
+            button:active {
+                box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+
+        }
+
+        article {
+
+        }
+    }
+    
+}
