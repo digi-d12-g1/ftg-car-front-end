@@ -15,7 +15,10 @@ export class AuthComponent implements OnInit {
   authForm!: FormGroup;
   employee: Employee = new Employee;
 
-  constructor( private authService: AuthService, private router: Router, private chekAuthWebService: CheckAuthWebService, private formBuilder: FormBuilder) {
+  constructor( private authService: AuthService,
+    private router: Router,
+    private chekAuthWebService: CheckAuthWebService,
+    private formBuilder: FormBuilder) {
 
   }
 
@@ -28,7 +31,7 @@ export class AuthComponent implements OnInit {
     this.authForm = this.formBuilder.group({
       login: [null],
       mdp: [null],
-    })
+    });
   }
 
 logIn() {
@@ -44,7 +47,7 @@ logIn() {
 }
 
   onSubmit(): void  {
-
+console.log(this.authForm)
   }
 
 }
