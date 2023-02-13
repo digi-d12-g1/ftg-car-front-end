@@ -3,11 +3,10 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthComponent } from './core/auth/auth.component';
+import { AuthComponent } from './core/auth/components/auth.component';
 import { CoreModule } from './core/core.module';
 import localeFr from '@angular/common/locales/fr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { GuardComponent } from './core/auth/guard/guard.component';
 
 
 registerLocaleData(localeFr);
@@ -15,8 +14,6 @@ registerLocaleData(localeFr);
 @NgModule({
   declarations: [
     AppComponent,
-    AuthComponent,
-    GuardComponent
 
   ],
   imports: [
