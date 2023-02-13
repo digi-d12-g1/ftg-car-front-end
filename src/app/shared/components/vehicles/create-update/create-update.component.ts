@@ -72,8 +72,9 @@ this.faceSnapPreview$ = this.vehicleForm.valueChanges;
 }
 
   addVehicle(vehicle: Vehicle){
+   vehicle.id = 0;
    this.vehiclesWebService.addVehicle(vehicle).subscribe();
-   };
+  };
 
 
   ////////////////////////////////////////////// Update Vehicle GET ///////////////////////////////////////////////////

@@ -40,6 +40,7 @@ export class ListEmployeesComponent implements OnInit {
 
   updateEmployee(employeeToUpdate: Employee) {
     this.updateEmployeeService.sendEmployeeToUpdate(employeeToUpdate);
+    console.log('data :', employeeToUpdate)
   }
 
 }
