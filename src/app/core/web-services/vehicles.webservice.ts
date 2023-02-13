@@ -9,7 +9,6 @@ import { Vehicle } from 'src/app/shared/models/vehicle';
 export class VehiclesWebService {
 
 urlBack: string;
-any: any;
 
   constructor(private http: HttpClient) {
     this.urlBack = 'http://localhost:4444/api/vehicles/';
