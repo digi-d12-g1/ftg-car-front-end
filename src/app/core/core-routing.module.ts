@@ -14,6 +14,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminPageComponent,
+    canActivate: [AuthComponent],
     loadChildren: () => import('../adminPage/admin-page.module').then(m => m.AdminPageModule)
   },
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'profil',
+    canActivate: [AuthComponent],
     loadChildren: () => import('../profil/profil.module').then(m => m.ProfilModule)
   },
   {

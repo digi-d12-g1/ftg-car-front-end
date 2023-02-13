@@ -7,6 +7,7 @@ import { AuthComponent } from './core/auth/auth.component';
 import { CoreModule } from './core/core.module';
 import localeFr from '@angular/common/locales/fr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { GuardComponent } from './core/auth/guard/guard.component';
 
 
 registerLocaleData(localeFr);
@@ -15,6 +16,7 @@ registerLocaleData(localeFr);
   declarations: [
     AppComponent,
     AuthComponent,
+    GuardComponent
 
   ],
   imports: [
