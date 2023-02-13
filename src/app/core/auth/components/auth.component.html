@@ -1,18 +1,29 @@
 <div class="auth">
   <img class="logo" src="../../assets/img/logo-blue.png" alt="Logo on blue background">
   <div class="container">
-    <p class="title">Connexion</p>
-    <div class="input-container">
-      <label for="">Username:</label>
-      <input type="text" name="" id="">
-    </div>
-    <div class="input-container">
-      <label for="">Password:</label>
-      <input type="password" name="" id="">
-    </div>
-    <div class="button-container">
-      <button (click)="onLogin()" routerLinkActive="border-b border-black">Log in</button>
-      <!-- routerLink="/profil" -->
-    </div>
+    <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+
+
+      <p class="title">Connexion</p>
+
+      <div class="form-group">
+        <div class="input-container">
+          <label for="">Username:</label>
+          <input type="text" name="" id="">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-container">
+          <label for="">Password:</label>
+          <input type="password" name="" id="">
+        </div>
+      </div>
+
+      <div class="button-container">
+        <button (click)="logIn()" type="submit" routerLinkActive="border-b border-black">Log in</button>
+      </div>
+    </form>
   </div>
+
 </div>

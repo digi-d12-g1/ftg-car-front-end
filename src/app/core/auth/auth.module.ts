@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
 import { AuthComponent } from './components/auth.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -16,7 +18,9 @@ import { AuthComponent } from './components/auth.component';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    SharedModule,
+    HttpClientModule,
+    RouterModule,
+    SharedModule
   ]
 })
 export class AuthModule { }
