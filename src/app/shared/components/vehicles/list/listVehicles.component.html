@@ -1,40 +1,27 @@
-<h2>Liste des véhicules</h2>
-<div>
-  <button type="button" class="btn btn-outline-success btn-lg" [routerLink]="['create-update']">Ajouter un nouveau
-    véhicule</button>
-</div>
-<form>
-  <div>
-    <div class="card mb-3" style="max-width: 800px" *ngFor="let vehicle of vehicleList">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="{{ vehicle.picture }}" class="img-fluid rounded-start" alt="Optimus Prime" width="300" />
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">{{ vehicle.brand }} - {{ vehicle.model }} </h5>
+<div class="admin-list-vehicle-container">
+  <h2>Parc de véhicules</h2>
 
-            <p class="card-text" type="text">{{ vehicle.numberplate }}
-            </p>
-            <p class="card-text">Statut : {{ vehicle.vehicleStatus }}</p>
-            <p class="card-text">Catégorie : {{ vehicle.category }}</p>
-            <p class="card-text">
-              Places disponibles : {{ vehicle.seatCapacity }}
-            </p>
-            <div class="card-footer">
-              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button class="btn btn-primary me-md-2" type="button" [routerLink]="['create-update']"
-                  (click)="updateVehicle( vehicle )">
-                  Modifier
-                </button>
+  <div class="vehicle" *ngFor="let vehicle of vehicleList">
+    <img src="{{ vehicle.picture }}" />
+    <div>
+      <h5>{{ vehicle.brand }} - {{ vehicle.model }} </h5>
 
-                <button type="button" (click)="deleteVehicleById( vehicle.id )"
-                  class="btn btn-danger">Supprimer</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <p>{{ vehicle.numberplate }}
+      </p>
+      <p>Statut : {{ vehicle.vehicleStatus }}</p>
+      <p>Catégorie : {{ vehicle.category }}</p>
+      <p>
+        Places disponibles : {{ vehicle.seatCapacity }}
+      </p>
     </div>
+    <button class="modif" type="button" [routerLink]="['create-update']" (click)="updateVehicle( vehicle )">
+      Modifier
+    </button>
+    <button type="button" (click)="deleteVehicleById( vehicle.id )" class="suppr">Supprimer</button>
   </div>
-</form>
+
+  <div>
+    <button type="button" class="btn btn-outline-success btn-lg" [routerLink]="['create-update']">Ajouter un nouveau
+      véhicule</button>
+  </div>
+</div>
