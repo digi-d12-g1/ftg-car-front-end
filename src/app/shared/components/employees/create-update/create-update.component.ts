@@ -27,6 +27,7 @@ export class CreateUpdateEmployeeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEmployeeToUpdate();
+    console.log('employee à modifier : ' , this.employee.id)
     this.employeeId = this.employee.id;
     this.formBuilderAddOrUpdateEmployee();
     this.faceSnapPreview$ = this.employeeForm.valueChanges;
@@ -40,6 +41,7 @@ export class CreateUpdateEmployeeComponent implements OnInit {
     this.updateEmployeeSubscription = this.updateEmployeeService.employeeService.subscribe( (data: Employee) => {
       this.employee = data;
     })
+    console.log('id de employee : ', this.employee.id)
   }
 
   formBuilderAddOrUpdateEmployee() {
@@ -65,6 +67,7 @@ export class CreateUpdateEmployeeComponent implements OnInit {
   }
 
   addEmployee(employee: Employee){
+    employee.id = 0;
     this.employeesWebService.addNewEmployee(employee).subscribe();
   };
 
