@@ -8,7 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { GuardComponent } from './auth/guard/guard.component';
+import { AuthComponent } from './auth/components/auth.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { GuardComponent } from './auth/guard/guard.component';
     HttpClientModule,
     ReactiveFormsModule,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ]
 })
 export class CoreModule {
