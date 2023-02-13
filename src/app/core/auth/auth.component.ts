@@ -19,7 +19,7 @@ export class AuthComponent implements OnInit {
 
   onLogin() {
     this.authService.login();
-    this.router.navigateByUrl('/facesnaps');
+    this.router.navigateByUrl('/admin');
   }
 
 }
