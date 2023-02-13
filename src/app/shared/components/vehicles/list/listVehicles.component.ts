@@ -16,7 +16,10 @@ export class ListVehiclesComponent implements OnInit {
   vehicleList: Vehicle[] = [];
   vehicleId!: number;
 
-  constructor(private vehiclesWebService:VehiclesWebService, private udateVehicleService: UpdateVehicleService, private router: Router) {
+  constructor(
+    private vehiclesWebService:VehiclesWebService,
+    private updateVehicleService: UpdateVehicleService,
+    private router: Router) {
 
   }
 
@@ -48,7 +51,7 @@ deleteVehicleById(idVehicle: any) {
 ////////////////////////////////////////////// UpdateVehicule Envoi vers la page de modification ///////////////////////////////////////////////////
 
 updateVehicle( vehicleToUpdate: Vehicle) {
-  this.udateVehicleService.sendVehicleToUpdate(vehicleToUpdate);
+  this.updateVehicleService.sendVehicleToUpdate(vehicleToUpdate);
 }
 
 

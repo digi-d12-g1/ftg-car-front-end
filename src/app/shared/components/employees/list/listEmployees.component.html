@@ -1,0 +1,39 @@
+<h2>Liste des Employees</h2>
+<div>
+  <button type="button" class="btn btn-outline-success btn-lg" [routerLink]="['create-update']">Ajouter un Employé</button>
+</div>
+<form>
+  <div>
+    <div
+      class="card mb-3"
+      style="max-width: 800px"
+      *ngFor="let employee of employeeList"
+    >
+      <div class="row g-0">
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ employee.username }}</h5>
+            <div class="card-footer">
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button
+                  class="btn btn-primary me-md-2"
+                  type="button"
+                  [routerLink]="['create-update']"
+                >
+                  Modifier
+                </button>
+                <button
+                  type="button"
+                  (click)="deleteEmployeeById(employee.id)"
+                  class="btn btn-danger"
+                >
+                  Supprimer
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

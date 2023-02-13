@@ -6,12 +6,14 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
 
   declarations: [
-    AdminPageComponent
+    AdminPageComponent,
+    HomeComponent
   ],
 
   imports: [

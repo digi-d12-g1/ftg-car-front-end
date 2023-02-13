@@ -24,7 +24,12 @@ faceSnapPreview$!: Observable<Vehicle>;
   // isNew: Boolean = false;
 
 
-  constructor(private udateVehicleService: UpdateVehicleService, private vehiclesWebService: VehiclesWebService, private router: Router, private formBuilder: FormBuilder, private route: ActivatedRoute) {
+  constructor(
+    private updateVehicleService: UpdateVehicleService,
+    private vehiclesWebService: VehiclesWebService,
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -73,7 +78,7 @@ this.faceSnapPreview$ = this.vehicleForm.valueChanges;
 
   ////////////////////////////////////////////// Update Vehicle GET ///////////////////////////////////////////////////
   private getVehicleToUpdate() {    // méthode observable pour récupérer le vicule à modifier de la liste
-    this.updateVehicleSubscription = this.udateVehicleService.vehicleService.subscribe( (data: Vehicle) => {
+    this.updateVehicleSubscription = this.updateVehicleService.vehicleService.subscribe( (data: Vehicle) => {
       this.vehicle = data;
 
     }
@@ -103,7 +108,7 @@ updateVehicleGet() {
 
   updateVehiclePost(vehicle: Vehicle){
     vehicle.id = this.vehicleId // on rajoute l'id de l'objet reçu grâce au subject Behavior sinon pas d'id en venant du template
-    this.vehiclesWebService.updateVehicle(this.vehicleId , vehicle).subscribe();
+    this.vehiclesWebService.updateVehicle(vehicle).subscribe();
     };
 
 
