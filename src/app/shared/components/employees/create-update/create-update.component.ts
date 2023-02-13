@@ -61,7 +61,7 @@ export class CreateUpdateEmployeeComponent implements OnInit {
 
   updateEmployeePost(employee: Employee) {
     employee.id = this.employeeId
-    this.employeesWebService.updateEmployee(this.employeeId, employee).subscribe();
+    this.employeesWebService.updateEmployee(employee).subscribe();
   }
 
   addEmployee(employee: Employee){

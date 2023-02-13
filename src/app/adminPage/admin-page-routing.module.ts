@@ -26,7 +26,6 @@ const routes: Routes = [{
       path: 'vehicles/create-update',
       component: CreateUpdateVehicleComponent
     },
-    //TODO : repasser sur les routes Employee (ne marche pas encore)
     {
       path: 'employees',
       component: ListEmployeesComponent,
