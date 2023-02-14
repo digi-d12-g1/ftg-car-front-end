@@ -108,7 +108,10 @@ updateVehicleGet() {
 
   updateVehiclePost(vehicle: Vehicle){
     vehicle.id = this.vehicleId // on rajoute l'id de l'objet reçu grâce au subject Behavior sinon pas d'id en venant du template
-    this.vehiclesWebService.updateVehicle(vehicle).subscribe();
+    this.vehiclesWebService.updateVehicle(vehicle).subscribe( data => {
+      this.router.navigate(['admin/vehicles'])
+      console.log(data)
+    });
     };
 
 
