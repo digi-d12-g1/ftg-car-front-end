@@ -4,35 +4,36 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { CheckAuthWebService } from '../web-services/checkAuth.webservice';
+import { TokenStorageService } from '../services/token-storage.service';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss']
+  styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent implements OnInit {
-
   authForm!: FormGroup;
-  employee: Employee = new Employee;
-
+  employee: Employee = new Employee();
+  employeeFromBdd: Employee = new Employee();
+  checkIfConnect!: number;
   isLoggedIn = false;
   isLoginFailed = false;
-  errorMessage = '';
 
-  constructor( private authService: AuthService,
+  constructor(
+    private authService: AuthService,
     private router: Router,
     private chekAuthWebService: CheckAuthWebService,
-    private formBuilder: FormBuilder) {
-
-  }
-
+    private formBuilder: FormBuilder,
+    private tokenStorage: TokenStorageService
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
   }
 
-  initForm(): void  {
+  initForm(): void {
     this.authForm = this.formBuilder.group({
+
       username: [null],
       password: [null],
     });
@@ -42,45 +43,50 @@ export class AuthComponent implements OnInit {
     return this.authForm.controls;
   }
 
-onSubmit() {
-  console.log(this.authForm.value);
-}
-
-
-logIn() {
-
-    this.employee = this.authForm.value;
-this.checkAuth(this.employee);
-}
-
-checkAuth(employee: Employee) {
-this.chekAuthWebService.getUser(employee).subscribe( data => {
-
-  // this.authForm.saveToken(data.accessToken);
-  // this.authForm.saveUser(data);
-  if (localStorage.getItem('ACCESS_TOKEN') == null) {
-    console.log('Ca marche l auth', data);
-  this.isLoginFailed = false;
-  this.isLoggedIn = true;
-  } else {
-    console.log('message d erreur' , data.message)
-    console.log('raison de lerreur', data.error)
-    this.isLoginFailed = true;
-  this.isLoggedIn = false;
+  onSubmit() {
+    console.log(this.authForm.value);
   }
 
+  logIn() {
+    this.employee = this.authForm.value;
+    this.checkAuth(this.employee);
+  }
 
-}
-);
+  checkAuth(employee: Employee) {
+    this.chekAuthWebService.getUser(employee).subscribe((data) => {
+
+      this.employeeFromBdd = this.tokenStorage.getUser(); // on récupère l'utilisateur enregistré si connection correctement passée
+
+      this.checkIfConnect = Object.keys(this.employeeFromBdd).length; // on vérifie ici si on a enregistrer un User en token, si longueur <=0 alors l'objet est vide et la co ne s'est pas faites
+
+      if (this.checkIfConnect >= 1) {
+
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        this.redirectToAdminOrUser(this.employeeFromBdd);
+
+      } else {
+
+        console.log('------------- Message de l erreur => ', data.message);
+        console.log('------------- Raison de l erreur  => ', data.error);
+        this.isLoginFailed = true;
+        this.isLoggedIn = false;
+        console.log('penser à s ocuuper de la non connection et bloquer l accès à admin')
+      }
+    });
 
     //this.authService.loginFilter(userData.login, userData.mdp);
-}
+  }
 
+  redirectToAdminOrUser(employeeFromBdd: Employee) {
+    if (employeeFromBdd.isAdmin) {
+      this.router.navigate(['/admin'])
+      localStorage.setItem('ACCESS_TOKEN', 'admin');
+    } else {
+      this.router.navigate(['/profil'])
+      localStorage.setItem('ACCESS_TOKEN', 'profil');
 
+    }
 
-
-
-
-
-
+  }
 }
