@@ -1,18 +1,16 @@
+import { Employee } from 'src/app/shared/models/employee';
 import { Injectable } from '@angular/core';
-
 
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TokenStorageService {
-    
   // --------------------------------------------------------------------------------
   // Constructor
-  constructor() { }
-
+  constructor() {}
 
   // --------------------------------------------------------------------------------
   // Methods
@@ -23,12 +21,13 @@ export class TokenStorageService {
    */
   signOut(): void {
     window.sessionStorage.clear();
+    localStorage.clear();
   }
 
   // ------------------------- saveToken --------------------------
   /**
    * function saveToken :
-   * @param token 
+   * @param token
    */
   public saveToken(token: string): void {
     window.sessionStorage.removeItem(TOKEN_KEY);
@@ -47,9 +46,9 @@ export class TokenStorageService {
   // ------------------------- saveUser --------------------------
   /**
    * function saveUser :
-   * @param user 
+   * @param user
    */
-  public saveUser(user: any): void {
+  public saveUser(user: Employee): void {
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
   }
