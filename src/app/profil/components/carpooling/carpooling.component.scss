@@ -41,6 +41,11 @@
                 }
             }
 
+            .green {
+                box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+
+
             button:active {
                 box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
             }
@@ -54,6 +59,7 @@
         justify-content: center;
 
         height: 60%;
+        width: 100%;
 
         aside {
             display: flex;
@@ -109,7 +115,12 @@
         }
 
         article {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
 
+            width: 70%;
         }
     }
     
