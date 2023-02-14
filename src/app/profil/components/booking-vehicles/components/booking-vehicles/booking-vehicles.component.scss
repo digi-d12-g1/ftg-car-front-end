@@ -1,0 +1,95 @@
+@import "../../../../../../../node_modules/bootstrap/dist/css/bootstrap.css";
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 3ex;
+
+  background-color: rgb(212, 232, 244);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+  [type="submit"] {
+    color: white;
+    width: 258px;
+    height: 54px;
+    left: 600px;
+    top: 414px;
+    margin: 0 0 3ex 5ex;
+
+    background: #0055A5;
+    border-radius: 12px;
+  }
+}
+
+.date-selection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10em;
+
+  h3 {
+    margin: 0 0 2ex 3ex;
+  }
+
+  input {
+    cursor: default;
+  }
+
+  .date-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    width: 130ex;
+    height: 20ex;
+
+    [type="button"] {
+      margin-left: 0.5ex;
+      margin-right: 2ex;
+
+      border-color: #0055A5;
+      color: #0055A5;
+
+      &:disabled {
+        border-color: gray;
+        color: gray;
+      }
+    }
+  }
+
+  .date-pick {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+      font-size: 4ex;
+      margin: 0 0.5ex 5ex 0;
+    }
+  }
+
+  .line {
+    height: 14ex;
+    border: 3px solid #0055A5;
+  }
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  margin: 0 14rem 0 14rem;
+
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+  p {
+    margin: 0 0 0 0;
+    color: #000;
+    font-size: 3ex;
+  }
+}

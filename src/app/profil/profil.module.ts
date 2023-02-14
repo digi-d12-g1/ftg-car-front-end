@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { CarpoolingComponent } from './components/carpooling/carpooling.component';
 import { ProfilPageComponent } from './profil-page/profil-page.component';
+import {BookingVehiclesModule} from "./components/booking-vehicles/booking-vehicles.module";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ProfilPageComponent } from './profil-page/profil-page.component';
   ],
   imports: [
     CommonModule,
-    ProfilRoutingModule
+    ProfilRoutingModule,
+    BookingVehiclesModule
   ]
 })
 export class ProfilModule { }
