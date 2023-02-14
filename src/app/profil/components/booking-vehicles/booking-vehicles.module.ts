@@ -8,18 +8,22 @@ import {
   NgbTimepickerModule
 } from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule} from "@angular/forms";
+import {SharedModule} from "../../../shared/shared.module";
+import { BookingVehiclesComponent } from './components/booking-vehicles/booking-vehicles.component';
 
 
 @NgModule({
   declarations: [
-    VehiclesListComponent
+    VehiclesListComponent,
+    BookingVehiclesComponent
   ],
   imports: [
     CommonModule,
     NgbCarouselModule,
     FormsModule,
     NgbDatepickerModule,
-    NgbTimepickerModule
+    NgbTimepickerModule,
+    SharedModule
   ],
   providers: [NgbCarouselConfig]
 })
