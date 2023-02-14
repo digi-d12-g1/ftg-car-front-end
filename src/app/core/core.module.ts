@@ -15,6 +15,7 @@ import { AuthComponent } from './auth/components/auth.component';
     HeaderComponent,
     FooterComponent,
     NotFoundComponent,
+    AuthComponent
   ],
   imports: [
     CoreRoutingModule,
@@ -31,6 +32,7 @@ import { AuthComponent } from './auth/components/auth.component';
     ReactiveFormsModule,
     HeaderComponent,
     FooterComponent,
+    AuthComponent
   ]
 })
 export class CoreModule {
