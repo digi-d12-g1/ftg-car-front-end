@@ -13,15 +13,17 @@
     <main>
         <aside *ngIf="driverOrNot" id="Driver">
             <h3><img src="../../../assets/img/play.png"> En cours</h3>
-            <button class="current" *ngFor="let advert of advertCarpoolingList" (click)="getCarpooling(advert)">
+            <button class="current" *ngFor="let advert of advertCarpoolingCurrentList" (click)="getCarpooling(advert)">
                 <p>{{ advert.departure }}</p>
             </button>
             <h3><img src="../../../assets/img/history.png"> Terminés</h3>
-            <button class="finish" *ngFor="let advert of advertCarpoolingList" (click)="getCarpooling(advert)">
+            <button class="finish" *ngFor="let advert of advertCarpoolingFinishList" (click)="getCarpooling(advert)">
                 <p>{{ advert.departure }}</p>
             </button>
         </aside>
         <aside *ngIf="!driverOrNot" id="Not">
+            <h3><img src="../../../assets/img/play.png"> En cours</h3>
+            <h3><img src="../../../assets/img/history.png"> Terminés</h3>
             <div>
                 <p>Vous n'avez pas encore de covoiturage</p>
             </div>
