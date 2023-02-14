@@ -1,7 +1,11 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { catchError, map, Observable, of } from 'rxjs';
 import { Employee } from 'src/app/shared/models/employee';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -9,21 +13,37 @@ import { Employee } from 'src/app/shared/models/employee';
 export class CheckAuthWebService {
 
 urlBack: string;
-// infoConnect: Employee = new Employee;
+infoConnect: Employee = new Employee;
 
   constructor(private http: HttpClient) {
     this.urlBack = 'http://localhost:4444/api/employees/';
   }
 
-  ////////////////////////////////////////////// Find All ///////////////////////////////////////////////////
 
+  getUser(infoConnect: any): Observable<any>{
 
+    return this.http.post<Employee>(this.urlBack + 'checkAuth/' , infoConnect).pipe(map((answer) => {                       // méthode qui permets d'envoyer la donnée vers le TS
 
-  getUser(infoConnect: Employee): Observable<Employee>{
-    console.log('web service Auth', infoConnect)
-    return this.http.post<Employee>(this.urlBack + 'checkAuth' , infoConnect);
+      console.log('ça marche', answer)
+      //this.estConnecte();
+      return answer;
+    }),
+      catchError((error) => {                                                    // gestion d'erreur selon la méthode que l'on a déclaréer en dessous
+        console.log('Erreur API listAddresses :', error);
+
+        return of(error);
+      })
+    );;
   }
 
 
+
+  // public estConnecte(){
+  //   return localStorage.setItem('ACCESS_TOKEN');
+  // }
+
+  public deconnecter(){
+    localStorage.removeItem('ACCESS_TOKEN');
+  }
 
 }
