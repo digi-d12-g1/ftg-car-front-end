@@ -15,11 +15,11 @@ export class AppComponent {
   }
 
   checkUrlHeader() : boolean {
-    return this.location.path() !== '';
+    return this.location.path() !== '/auth/login';
   }
 
   checkUrlFooter() : boolean {
-    return this.location.path() !== '' && this.location.path() !== '/404';
+    return this.location.path() !== '/auth/login' && this.location.path() !== '/404';
   }
 
 }
