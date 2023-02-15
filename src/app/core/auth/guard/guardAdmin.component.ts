@@ -12,7 +12,7 @@ import { AuthService } from '../services/auth.service';
 @Injectable({
   providedIn: 'root',
 })
-export class GuardComponent implements CanActivate {
+export class AdminGuardComponent implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate( next: ActivatedRouteSnapshot, state: RouterStateSnapshot
@@ -20,11 +20,20 @@ export class GuardComponent implements CanActivate {
 
         const token = localStorage.getItem('ACCESS_TOKEN');
 
-    if (token == 'profil' || token == 'admin') {
+    if (token == 'admin') {
+
       return true;
+
+    } else if (token == 'profil') {
+
+      this.router.navigateByUrl('/404');
+      return false;
+
     } else {
+
       this.router.navigateByUrl('/auth/login');
       return false;
+
     }
   }
 }
