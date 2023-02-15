@@ -54,6 +54,4 @@ updateVehicle( vehicleToUpdate: Vehicle) {
   this.updateVehicleService.sendVehicleToUpdate(vehicleToUpdate);
 }
 
-
-
 }

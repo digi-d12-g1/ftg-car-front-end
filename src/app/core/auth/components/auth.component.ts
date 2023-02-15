@@ -1,10 +1,10 @@
 import { Employee } from './../../../shared/models/employee';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
 import { CheckAuthWebService } from '../web-services/checkAuth.webservice';
 import { TokenStorageService } from '../services/token-storage.service';
+import { IsConnectService } from '../services/isConect.service';
 
 @Component({
   selector: 'app-auth',
@@ -16,11 +16,14 @@ export class AuthComponent implements OnInit {
   employee: Employee = new Employee();
   employeeFromBdd: Employee = new Employee();
   checkIfConnect!: number;
-  isLoggedIn = false;
-  isLoginFailed = false;
+  isLoggedIn: boolean = false;
+  errorMessage: any;
+  isLoginFailed: boolean = false;
+  neverTry: boolean = true;
+  ;
 
   constructor(
-    private authService: AuthService,
+    private isConnectService: IsConnectService,
     private router: Router,
     private chekAuthWebService: CheckAuthWebService,
     private formBuilder: FormBuilder,
@@ -60,36 +63,37 @@ export class AuthComponent implements OnInit {
       this.checkIfConnect = Object.keys(this.employeeFromBdd).length; // on vérifie ici si on a enregistrer un User en token, si longueur <=0 alors l'objet est vide et la co ne s'est pas faites
 
       if (this.checkIfConnect >= 1) {
-
-        // this.isLoginFailed = false;
-        // this.isLoggedIn = true;
+        this.isLoginFailed = false;
         this.redirectToAdminOrUser(this.employeeFromBdd);
+        // this.isConnectSendToService(this.isLoggedIn = true);
 
       } else {
 
         console.log('------------- Message de l erreur => ', data.message);
         console.log('------------- Raison de l erreur  => ', data.error);
-        // this.isLoginFailed = true;
-        // this.isLoggedIn = false;
+        this.isLoginFailed = true;
+        this.neverTry = false;
+        this.errorMessage = data.error;
+        // this.isConnectSendToService(this.isLoggedIn = false);
       }
     });
 
-    //this.authService.loginFilter(userData.login, userData.mdp);
   }
 
-  redirectToAdminOrUser(employeeFromBdd: Employee) {
+  private redirectToAdminOrUser(employeeFromBdd: Employee) { // méthode pour créer token admin ou profil pour contrôle d'accès des pages
 
     if (employeeFromBdd.isAdmin) {
-
+      console.log('coucoucoucocuocuocu')
       this.router.navigate(['/admin'])
-      localStorage.setItem('ACCESS_TOKEN', 'admin');
-
+      this.tokenStorage.saveToken('admin');
     } else {
-
       this.router.navigate(['/profil'])
-      localStorage.setItem('ACCESS_TOKEN', 'profil');
-
+      this.tokenStorage.saveToken('profil');
     }
-
   }
+
+
+  private isConnectSendToService(isConnect: boolean) {    // méthode observable pour récupérer dans l'app si on est connect
+    this.isConnectService.getIsConnect(isConnect);
+}
 }

@@ -1,3 +1,4 @@
+import { IsConnectService } from './../auth/services/isConect.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../auth/services/token-storage.service';
@@ -7,9 +8,14 @@ import { TokenStorageService } from '../auth/services/token-storage.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router, private tokenStorageService: TokenStorageService) {
+
+
+  constructor(private router: Router, private tokenStorageService: TokenStorageService, private isConnectService: IsConnectService) {
+
+  }
+  ngOnInit(): void {
 
   }
 
