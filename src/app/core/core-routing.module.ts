@@ -7,6 +7,8 @@ import {AuthComponent} from "./auth/components/auth.component";
 import { GuardComponent } from './auth/guard/guard.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AdminGuardComponent } from './auth/guard/guardAdmin.component';
+import {AuthComponent} from "./auth/auth.component";
+import {NotFoundComponent} from './not-found/not-found.component';
 
 const routes: Routes = [
   // {
@@ -22,11 +24,6 @@ const routes: Routes = [
     component: AdminPageComponent,
     canActivate: [AdminGuardComponent],
     loadChildren: () => import('../adminPage/admin-page.module').then(m => m.AdminPageModule)
-  },
-  {
-    path: 'booking',
-    component: VehiclesListComponent,
-    loadChildren: () => import('../booking-vehicles/booking-vehicles.module').then(m => m.BookingVehiclesModule)
   },
   {
     path: 'profil',
