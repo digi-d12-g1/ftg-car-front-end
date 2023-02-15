@@ -61,17 +61,16 @@ export class AuthComponent implements OnInit {
 
       if (this.checkIfConnect >= 1) {
 
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
+        // this.isLoginFailed = false;
+        // this.isLoggedIn = true;
         this.redirectToAdminOrUser(this.employeeFromBdd);
 
       } else {
 
         console.log('------------- Message de l erreur => ', data.message);
         console.log('------------- Raison de l erreur  => ', data.error);
-        this.isLoginFailed = true;
-        this.isLoggedIn = false;
-        console.log('penser à s ocuuper de la non connection et bloquer l accès à admin')
+        // this.isLoginFailed = true;
+        // this.isLoggedIn = false;
       }
     });
 
@@ -79,10 +78,14 @@ export class AuthComponent implements OnInit {
   }
 
   redirectToAdminOrUser(employeeFromBdd: Employee) {
+
     if (employeeFromBdd.isAdmin) {
+
       this.router.navigate(['/admin'])
       localStorage.setItem('ACCESS_TOKEN', 'admin');
+
     } else {
+
       this.router.navigate(['/profil'])
       localStorage.setItem('ACCESS_TOKEN', 'profil');
 

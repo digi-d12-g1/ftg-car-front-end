@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from '../auth/services/token-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  constructor(private router: Router, private tokenStorageService: TokenStorageService) {
+
+  }
+
+  logOut():void {
+
+    this.tokenStorageService.signOut;
+    this.router.navigate(['/auth/login']);
+  };
 }
