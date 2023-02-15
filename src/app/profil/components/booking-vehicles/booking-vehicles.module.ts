@@ -9,7 +9,7 @@ import {
 } from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule} from "@angular/forms";
 import {SharedModule} from "../../../shared/shared.module";
-import { BookingVehiclesComponent } from './components/booking-vehicles/booking-vehicles.component';
+import {BookingVehiclesComponent} from './components/booking-vehicles/booking-vehicles.component';
 
 
 @NgModule({
