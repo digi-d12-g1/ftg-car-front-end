@@ -18,6 +18,25 @@
   </ngb-carousel>
 </div>
 
+<div class="separator">
+  <div class="line"></div>
+</div>
+
+<div class="card-container">
+  <div class="cards" *ngFor="let vehicle of vehicles">
+    <img src="{{ vehicle.picture }}" alt="">
+    <p class="title">{{ vehicle.brand }} {{ vehicle.model }}</p>
+    <p>Immatriculation : {{ vehicle.numberplate }}</p>
+    <p>Nombre de places : {{ vehicle.seatCapacity }}</p>
+    <button (click)="getBookingInfo(vehicle)"
+            data-bs-toggle="modal"
+            data-bs-target="#createBookingModal"
+            type="button"
+            [disabled]="errors">Réserver
+    </button>
+  </div>
+</div>
+
 <div class="modal fade" aria-labelledby="createBookingModalLabel" aria-hidden="true" id="createBookingModal">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
