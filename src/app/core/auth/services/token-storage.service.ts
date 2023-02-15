@@ -20,7 +20,8 @@ export class TokenStorageService {
    * function signOut :
    */
   signOut(): void {
-    window.sessionStorage.clear();
+    console.log('Utilisateur correctement déconnecté')
+    sessionStorage.clear();
     localStorage.clear();
   }
 

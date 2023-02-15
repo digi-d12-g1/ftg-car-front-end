@@ -14,8 +14,7 @@ export class HeaderComponent {
   }
 
   logOut():void {
-
-    this.tokenStorageService.signOut;
+    this.tokenStorageService.signOut();
     this.router.navigate(['/auth/login']);
   };
 }
