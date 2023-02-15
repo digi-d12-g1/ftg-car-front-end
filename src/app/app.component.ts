@@ -14,13 +14,13 @@ export class AppComponent {
   title = 'ftg-car-front-end';
   location: Location;
 
-  authControleSubscription!: Subscription;
-  controlAdminRole!: Token;
+  // authControleSubscription!: Subscription;
+  // controlAdminRole!: Token;
 
 
   constructor(location: Location, private adminControlService: AdminControlService) {
     this.location = location;
-    this.controlIfUserIfReallyAdmin();
+    // this.controlIfUserIfReallyAdmin();
   }
 
   checkUrlHeader() : boolean {
@@ -31,19 +31,17 @@ export class AppComponent {
     return this.location.path() !== '/auth/login' && this.location.path() !== '/404';
   }
 
-get adminControl() {
-  return this.controlIfUserIfReallyAdmin();
-}
 
-controlIfUserIfReallyAdmin() {
-  this.authControleSubscription = this.adminControlService.isAdminService.subscribe( data=> {
-    // this.controlAdminRole = data;
-    // if ( this.controlAdminRole. == 'admin' ) {
-    // console.log('Control Admin', data)
-    // console.log('Control Admin',  this.controlAdminRole)
-    // }
-  }
-);
-}
+
+// controlIfUserIfReallyAdmin() {
+//   this.authControleSubscription = this.adminControlService.isAdminService.subscribe( data=> {
+//     // this.controlAdminRole = data;
+//     // if ( this.controlAdminRole. == 'admin' ) {
+//     // console.log('Control Admin', data)
+//     // console.log('Control Admin',  this.controlAdminRole)
+//     // }
+//   }
+// );
+// }
 
 }

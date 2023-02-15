@@ -17,7 +17,6 @@ export class AdminControlService {
 sendVehicleToUpdate() {
   this.isAdminService.next(window.sessionStorage.getItem(TOKEN_KEY));
 
-  console.log('COUCOU je sais que tu as changé ton profil petit coquin')
 }
 
 }
