@@ -30,15 +30,46 @@
         </aside>
         <article *ngIf="driverOrNot" id="Driver">
             <div>
-                <p>{{ advertCarpooling.departure }}</p>
-                <p>{{ advertCarpooling.departureAdress }}</p>
-                <p>{{ advertCarpooling.arrivalAdress }}</p>
-                <p>{{ advertCarpooling.seatAvailable }}</p>
+                <div>
+                    <p class="title">Début de la réservation</p>
+                    <p class="text">{{ advertCarpooling.departure }}</p>
+                </div>
+                <div>
+                    <p class="title">Adresse de départ</p>
+                    <p class="text">{{ advertCarpooling.departureAdress }}</p>
+                </div>
+                <div>
+                    <p class="title">Adresse d'arrivée</p>
+                    <p class="text">{{ advertCarpooling.arrivalAdress }}</p>
+                </div>
+                <div>
+                    <p class="title">Place disponible</p>
+                    <p class="text">{{ advertCarpooling.seatAvailable }}</p>
+                </div>
+                <div>
+                    <p class="title">Organisateur</p>
+                    <p class="text">{{ advertCarpooling.idEmployee!.username }}</p>
+                </div>
             </div>
         </article>
         <article *ngIf="!driverOrNot" id="Not">
             <div>
-                <p>Vous n'avez pas encore de covoiturage</p>
+                <div>
+                    <p class="title">Début de la réservation</p>
+                    <p class="text">{{ advertCarpooling.departure }}</p>
+                </div>
+                <div>
+                    <p class="title">Adresse de départ</p>
+                    <p class="text">{{ advertCarpooling.departureAdress }}</p>
+                </div>
+                <div>
+                    <p class="title">Adresse d'arrivée</p>
+                    <p class="text">{{ advertCarpooling.arrivalAdress }}</p>
+                </div>
+                <div>
+                    <p class="title">Place disponible</p>
+                    <p class="text">{{ advertCarpooling.seatAvailable }}</p>
+                </div>
             </div>
         </article>
     </main>

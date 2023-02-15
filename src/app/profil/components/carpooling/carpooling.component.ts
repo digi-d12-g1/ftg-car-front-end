@@ -12,7 +12,7 @@ export class CarpoolingComponent implements OnInit {
   advertCarpoolingList: AdvertCarpooling[] = [];
   advertCarpoolingFinishList: AdvertCarpooling[] = [];
   advertCarpoolingCurrentList: AdvertCarpooling[] = [];
-  driverOrNot: boolean = false;
+  driverOrNot: boolean = true;
   advertCarpooling: AdvertCarpooling = new AdvertCarpooling;
 
     constructor(private advertCarpoolingWebService: AdvertCarpoolingWebService) {}
