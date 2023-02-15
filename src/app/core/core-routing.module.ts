@@ -2,19 +2,12 @@ import { TokenStorageService } from './auth/services/token-storage.service';
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AdminPageComponent} from '../adminPage/components/admin-page/admin-page.component';
-import {VehiclesListComponent} from "../booking-vehicles/components/vehicles-list/vehicles-list.component";
 import {AuthComponent} from "./auth/components/auth.component";
 import { GuardComponent } from './auth/guard/guard.component';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { AdminGuardComponent } from './auth/guard/guardAdmin.component';
-import {AuthComponent} from "./auth/auth.component";
-import {NotFoundComponent} from './not-found/not-found.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   component: AuthComponent
-  // },
   {
     path: 'auth/login',
     component: AuthComponent
