@@ -1,7 +1,7 @@
 import { TokenStorageService } from './auth/services/token-storage.service';
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {AdminPageComponent} from '../adminPage/components/admin-page/admin-page.component';
+import {AdminPageComponent} from '../adminPage/admin-page/admin-page.component';
 import {AuthComponent} from "./auth/components/auth.component";
 import { GuardComponent } from './auth/guard/guard.component';
 import { AdminGuardComponent } from './auth/guard/guardAdmin.component';
