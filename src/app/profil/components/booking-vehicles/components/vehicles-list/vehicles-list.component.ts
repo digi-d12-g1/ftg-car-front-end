@@ -45,8 +45,8 @@ export class VehiclesListComponent {
 
   addBooking(vehicle: Vehicle) {
     let user = this.tokenStorage.getUser()
-
     let employee = new Employee(user.username, user.password, user.id)
+
     this.booking = new BookingVehicle(this.locationStart,this.locationEnd,vehicle, employee)
     this.bookingWebService.addBooking(this.booking);
     this.router.navigateByUrl('/profil')
