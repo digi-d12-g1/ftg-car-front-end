@@ -24,4 +24,9 @@ export class BookingWebserviceService {
   addBooking(booking: BookingVehicle) {
     this.httpClient.post(this.baseUrl, booking).subscribe()
   }
+
+  // find by id employee
+  getAllBookingWithIdEmployee(idEmployee: number) {
+    return this.httpClient.get<BookingVehicle[]>(this.baseUrl + '/findByEmployee/' + idEmployee);
+  }
 }

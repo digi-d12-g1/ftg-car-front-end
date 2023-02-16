@@ -5,28 +5,29 @@
     <main>
         <aside>
             <h3><img src="../../../assets/img/play.png"> En cours</h3>
+            <button class="current" *ngFor="let booking of bookingVehicleCurrentList"
+                (click)="getBookingVehicle(booking)">
+                <p>{{ booking.idVehicle.brand }} {{ booking.idVehicle.model }}</p>
+            </button>
             <h3><img src="../../../assets/img/history.png"> Terminés</h3>
-            <div>
-                <p>Vous n'avez pas encore de réservation</p>
-            </div>
+            <button class="finish" *ngFor="let booking of bookingVehicleFinishList"
+                (click)="getBookingVehicle(booking)">
+                <p>{{ booking.idVehicle.brand }} {{ booking.idVehicle.model }}</p>
+            </button>
         </aside>
         <article>
             <div>
                 <div>
                     <p class="title">Début de la réservation</p>
-                    <!-- <p class="text">{{ advertCarpooling.departure }}</p> -->
+                    <p class="text">{{ bookingVehicle.departure }}</p>
                 </div>
                 <div>
-                    <p class="title">Adresse de départ</p>
-                    <!-- <p class="text">{{ advertCarpooling.departureAdress }}</p> -->
+                    <p class="title">Fin de la réservation</p>
+                    <p class="text">{{ bookingVehicle.arrival }}</p>
                 </div>
                 <div>
-                    <p class="title">Adresse d'arrivée</p>
-                    <!-- <p class="text">{{ advertCarpooling.arrivalAdress }}</p> -->
-                </div>
-                <div>
-                    <p class="title">Place disponible</p>
-                    <!-- <p class="text">{{ advertCarpooling.seatAvailable }}</p> -->
+                    <p class="title">Véhicule</p>
+                    <p class="text">{{ bookingVehicle.idVehicle.brand }} {{ bookingVehicle.idVehicle.model }}</p>
                 </div>
             </div>
         </article>
