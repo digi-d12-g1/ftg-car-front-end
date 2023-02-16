@@ -9,7 +9,13 @@ export class AdvertCarpoolingWebService {
     
         constructor(private http: HttpClient) { }
     
-        getAllBookingWithIdEmployee(idEmployee: number): Observable<any> {
+        getAllCarpoolingWithIdEmployee(idEmployee: number): Observable<any> {
             return this.http.get('http://localhost:4444/api/advert-carpoolings/findOpenedAdverts/' + idEmployee);
         }
+
+        getAllBookingWithIdEmployee(idEmployee: number): Observable<any> {
+            return this.http.get('http://localhost:4444/api/booking-advert-carpoolings/findAll/' + idEmployee);
+        }
+
+
 }

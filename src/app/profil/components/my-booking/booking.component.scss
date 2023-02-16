@@ -19,6 +19,7 @@
         justify-content: center;
 
         height: 60%;
+        width: 100%;
 
         aside {
             display: flex;
@@ -31,6 +32,13 @@
             border-right: 0.3ex solid #d4e8f4;
             padding: 0 2ex 0 2ex;
             gap: 2ex;
+
+            h3 {
+                padding: 0;
+                margin: 0;
+                font-size: 2ex;
+                font-weight: 600;
+            }
 
             button {
                 display: flex;
@@ -67,7 +75,47 @@
         }
 
         article {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
 
+            width: 70%;
+
+            div {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;   
+                justify-content: center;
+
+                width: 100%;
+                gap: 10ex;
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 2ex;  
+
+                    width: 30%;
+
+                    p {
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    .title {
+                        font-weight: 400;
+                        font-size: 2ex;    
+                    }
+
+                    .text {
+                        font-weight: 500;
+                        font-size: 2ex;
+                    }
+                }
+            }
         }
     }
     
