@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from 'src/app/core/auth/services/token-storage.service';
 import { AdvertCarpooling } from 'src/app/shared/models/advert-carpooling';
-import { AdvertCarpoolingWebService } from './../../../core/web-services/advert-carpooling.webservice';
+import { AdvertCarpoolingWebService } from '../../../core/web-services/advert-carpooling.webservice';
 
 @Component({
   selector: 'app-carpooling',
@@ -8,17 +9,22 @@ import { AdvertCarpoolingWebService } from './../../../core/web-services/advert-
   styleUrls: ['./carpooling.component.scss']
 })
 export class CarpoolingComponent implements OnInit {
-  
+
+  idUser = this.tokenStorageService.getUser()?.id;  
   advertCarpoolingList: AdvertCarpooling[] = [];
   advertCarpoolingFinishList: AdvertCarpooling[] = [];
   advertCarpoolingCurrentList: AdvertCarpooling[] = [];
-  driverOrNot: boolean = true;
+  driverOrNot: boolean = false;
   advertCarpooling: AdvertCarpooling = new AdvertCarpooling;
+  bookingAdvertCarpoolingList: AdvertCarpooling[] = [];
+  bookingAdvertCarpoolingFinishList: AdvertCarpooling[] = [];
+  bookingAdvertCarpoolingCurrentList: AdvertCarpooling[] = [];
 
-    constructor(private advertCarpoolingWebService: AdvertCarpoolingWebService) {}
+    constructor(private advertCarpoolingWebService: AdvertCarpoolingWebService, private tokenStorageService: TokenStorageService) {}
 
     ngOnInit(): void {
       this.AdvertgetAllCarpoolings();
+      this.AdvertgetAllBookingCarpoolings();
     }
 
     //call splitList() when the list of advert carpooling is updated
@@ -37,13 +43,28 @@ export class CarpoolingComponent implements OnInit {
         const advertDate = new Date(advert.departure!);      
         return advertDate > today;
       });
+      this.bookingAdvertCarpoolingFinishList = this.bookingAdvertCarpoolingList.filter(advert => {
+        const advertDate = new Date(advert.departure!);      
+        return advertDate < today;
+      });
+      this.bookingAdvertCarpoolingCurrentList = this.bookingAdvertCarpoolingList.filter(advert => {
+        const advertDate = new Date(advert.departure!);      
+        return advertDate > today;
+      });
     }
 
 
     // Get all advert carpooling
     AdvertgetAllCarpoolings() {
-      this.advertCarpoolingWebService.getAllBookingWithIdEmployee(2).subscribe(data => {
+      this.advertCarpoolingWebService.getAllCarpoolingWithIdEmployee(this.idUser).subscribe(data => {
         this.advertCarpoolingList = data;
+      });
+    }
+
+    // Get all booking advert carpooling
+    AdvertgetAllBookingCarpoolings() {
+      this.advertCarpoolingWebService.getAllBookingWithIdEmployee(this.idUser).subscribe(data => {
+        this.bookingAdvertCarpoolingList = data.map((booking: any) => booking.idAdvertCarpooling);
       });
     }
 
