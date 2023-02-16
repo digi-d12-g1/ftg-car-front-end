@@ -4,6 +4,6 @@
     img="../../assets/img/car.png"></app-nav-button>
   <app-nav-button text="Réserver un covoit" img="../../assets/img/group.png"></app-nav-button>
   <img (click)="logOut()" class="logout" src="../../../assets/img/logout.png">
-  <img routerLink="/admin" class="admin" src="../../../assets/img/admin.png">
+  <img *ngIf="isAdmin" routerLink="/admin" class="admin" src="../../../assets/img/admin.png">
   <img routerLink="/profil" class="profil" src="../../../assets/img/profil.png">
 </nav>
