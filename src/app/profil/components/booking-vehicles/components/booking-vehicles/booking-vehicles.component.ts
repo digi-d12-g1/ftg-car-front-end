@@ -49,7 +49,7 @@ export class BookingVehiclesComponent implements OnInit {
    * @private
    */
   private initNgbDates() {
-    // ngb components
+    // ngb objects
     let endHour = this.presentTime.hour + 1
     let endMinutes = this.presentTime.minute
 
@@ -80,17 +80,17 @@ export class BookingVehiclesComponent implements OnInit {
   private initDates() {
     this.locationStart = new Date(Date.UTC(
       this.startDate.year,
-      this.startDate.month - 1,
+      this.startDate.month,
       this.startDate.day,
-      this.startTime.hour - 1,
+      this.startTime.hour,
       this.startTime.minute
     ))
 
     this.locationEnd = new Date(Date.UTC(
       this.endDate.year,
-      this.endDate.month - 1,
+      this.endDate.month,
       this.endDate.day,
-      this.endTime.hour - 1,
+      this.endTime.hour,
       this.endTime.minute
     ))
   }
