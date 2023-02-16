@@ -14,14 +14,15 @@
         Places disponibles : {{ vehicle.seatCapacity }}
       </p>
     </div>
-    <button class="modif" type="button" [routerLink]="['create-update']" (click)="updateVehicle( vehicle )">
+    <button class="modif" type="button" [routerLink]="['create-update' , true]" (click)="updateVehicle( vehicle )">
       Modifier
     </button>
     <button type="button" (click)="deleteVehicleById( vehicle.id )" class="suppr">Supprimer</button>
   </div>
 
   <div>
-    <button type="button" class="btn btn-outline-success btn-lg" [routerLink]="['create-update']">Ajouter un nouveau
+    <button type="button" class="btn btn-outline-success btn-lg" [routerLink]="['create-update', false]">Ajouter un
+      nouveau
       véhicule</button>
   </div>
 </div>
