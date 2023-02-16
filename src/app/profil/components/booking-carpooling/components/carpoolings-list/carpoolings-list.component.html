@@ -1,0 +1,43 @@
+<div class="card-container">
+  <div class="cards" *ngFor="let advertCarpooling of advertCarpoolings">
+    <p class="title">Covoiturage organisé par {{ advertCarpooling.idEmployee.username }}</p>
+    <p>Départ : {{ advertCarpooling.departure }}</p>
+    <p>De : {{ advertCarpooling.departureAdress }}</p>
+    <p>Vers : {{ advertCarpooling.arrivalAdress }}</p>
+    <p>Nombre de sièges dispos : {{ advertCarpooling.seatAvailable }}</p>
+    <button (click)="getBookingInfo(advertCarpooling)"
+            data-bs-toggle="modal"
+            data-bs-target="#createBookingModal"
+            type="button"
+            [disabled]="errors">Réserver
+    </button>
+  </div>
+</div>
+
+<!-- <div class="modal fade" aria-labelledby="createBookingModalLabel" aria-hidden="true" id="createBookingModal">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Valider la réservation ?</h3>
+      </div>
+      <br>
+      <p class="title">Date de début</p>
+      <div class="modal-info">
+        <p>{{locationStart | date}} à {{locationStart | date: 'shortTime'}}</p>
+      </div>
+      <p class="title">Date de fin</p>
+      <div class="modal-info">
+        <p>{{locationEnd | date}} à {{locationEnd | date: 'shortTime'}}</p>
+      </div>
+      <p class="title">Véhicule</p>
+      <div class="modal-info">
+        <p>{{vehicle.brand}} {{vehicle.model}} avec {{vehicle.seatCapacity}} places</p>
+      </div>
+      <div class="button-container">
+        <button type="submit" data-bs-dismiss="modal" (click)="addBooking(vehicle)">Confirmer</button>
+        <button type="button" data-bs-dismiss="modal">Annuler</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+

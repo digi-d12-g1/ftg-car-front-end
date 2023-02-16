@@ -30,7 +30,6 @@ export class VehiclesListComponent {
 
 
   constructor(
-    private vehicleWebService: VehiclesWebService,
     private vehicleService: UpdateVehicleService,
     private bookingWebService: BookingWebserviceService,
     private router: Router,

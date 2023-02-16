@@ -6,15 +6,19 @@ import { Observable, of } from 'rxjs';
     providedIn: 'root'
 })
 export class AdvertCarpoolingWebService {
-    
+
         constructor(private http: HttpClient) { }
-    
+
         getAllCarpoolingWithIdEmployee(idEmployee: number): Observable<any> {
             return this.http.get('http://localhost:4444/api/advert-carpoolings/findOpenedAdverts/' + idEmployee);
         }
 
         getAllBookingWithIdEmployee(idEmployee: number): Observable<any> {
             return this.http.get('http://localhost:4444/api/booking-advert-carpoolings/findAll/' + idEmployee);
+        }
+
+        getAllAdvertCarpoolingsBetweenDates(dateBegin: Date, dateEnd: Date): Observable<any> {
+            return this.http.get('http://localhost:4444/api/advert-carpoolings/findAllBetweenDates/' +`${dateBegin}/${dateEnd}`)
         }
 
 
