@@ -81,7 +81,6 @@ this.faceSnapPreview$ = this.vehicleForm.valueChanges;
   private getVehicleToUpdate() {    // méthode observable pour récupérer le vicule à modifier de la liste
     this.updateVehicleSubscription = this.updateVehicleService.vehicleService.subscribe( (data: Vehicle) => {
       this.vehicle = data;
-
     }
   );
 }

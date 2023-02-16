@@ -8,10 +8,16 @@
 
       <p class="title">Connexion</p>
 
+      <div *ngIf="isLoginFailed && !neverTry">
+        <p>{{errorMessage}}</p>
+      </div>
+
       <div class="form-group">
         <label for="username">Pseudo :</label>
+
         <input type="text" class="form-control" name="username" id="username" formControlName="username" required>
       </div>
+
 
       <div class="form-group">
         <label for="password">Mot de passe :</label>
@@ -19,10 +25,7 @@
       </div>
 
       <div class="button-container">
-        <button type="submit" (click)="logIn()">Se
-          connecter</button>
-
-        <!-- routerLinkActive="border-b border-black" -->
+        <button type="submit" (click)="logIn()">Se connecter</button>
       </div>
 
     </div>

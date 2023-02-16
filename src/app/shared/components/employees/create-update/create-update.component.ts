@@ -27,9 +27,11 @@ export class CreateUpdateEmployeeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEmployeeToUpdate();
-    console.log('employee à modifier : ' , this.employee.id)
+
     this.employeeId = this.employee.id;
+    console.log('employee à modifier : ' , this.employee.id)
     this.formBuilderAddOrUpdateEmployee();
+    this.employee.isAdmin = false;
     this.faceSnapPreview$ = this.employeeForm.valueChanges;
   }
 
@@ -47,7 +49,8 @@ export class CreateUpdateEmployeeComponent implements OnInit {
   formBuilderAddOrUpdateEmployee() {
     this.employeeForm = this.formBuilder.group({
       username: [null],
-      password: [null]
+      password: [null],
+      isAdmin: [null]
     });
   }
 
