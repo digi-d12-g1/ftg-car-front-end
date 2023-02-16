@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CreateUpdateVehicleComponent } from './components/vehicles/create-update/create-update.component';
-import { ListVehiclesComponent } from './components/vehicles/list/listVehicles.component';
+import { CreateUpdateVehicleComponent } from '../adminPage/components/vehicles/create-update/create-update.component';
+import { ListVehiclesComponent } from '../adminPage/components/vehicles/list/listVehicles.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ListEmployeesComponent } from './components/employees/list/listEmployees.component';
-import { CreateUpdateEmployeeComponent } from './components/employees/create-update/create-update.component';
+import { ListEmployeesComponent } from '../adminPage/components/employees/list/listEmployees.component';
+import { CreateUpdateEmployeeComponent } from '../adminPage/components/employees/create-update/create-update.component';
 import { NavButtonComponent } from './components/nav-button/nav-button.component';
 
 
@@ -13,13 +13,7 @@ import { NavButtonComponent } from './components/nav-button/nav-button.component
   declarations: [
     NavButtonComponent,
 
-    //Vehicles
-    ListVehiclesComponent,
-    CreateUpdateVehicleComponent,
 
-    //Employees
-    ListEmployeesComponent,
-    CreateUpdateEmployeeComponent
 
   ],
   imports: [
@@ -38,13 +32,7 @@ import { NavButtonComponent } from './components/nav-button/nav-button.component
 
     NavButtonComponent,
 
-    //Vehicles
-    ListVehiclesComponent,
-    CreateUpdateVehicleComponent,
 
-    //Employees
-    ListEmployeesComponent,
-    CreateUpdateEmployeeComponent
   ]
 })
 export class SharedModule { }
