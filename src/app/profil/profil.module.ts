@@ -6,7 +6,11 @@ import { HomeComponent } from './components/home/home.component';
 import { BookingComponent } from './components/my-booking/booking.component';
 import { CarpoolingComponent } from './components/my-carpooling/carpooling.component';
 import { ProfilPageComponent } from './profil-page/profil-page.component';
-import {BookingVehiclesModule} from "./components/booking-vehicles/booking-vehicles.module";
+import { BookingVehiclesComponent } from './components/booking-vehicles/components/booking-vehicles/booking-vehicles.component';
+import { FormsModule } from '@angular/forms';
+import { NgbCarouselConfig, NgbCarouselModule, NgbDatepickerModule, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from '../shared/shared.module';
+import { VehiclesListComponent } from './components/booking-vehicles/components/vehicles-list/vehicles-list.component';
 
 
 @NgModule({
@@ -14,12 +18,19 @@ import {BookingVehiclesModule} from "./components/booking-vehicles/booking-vehic
     HomeComponent,
     BookingComponent,
     CarpoolingComponent,
-    ProfilPageComponent
+    ProfilPageComponent,
+    VehiclesListComponent,
+    BookingVehiclesComponent
   ],
   imports: [
     CommonModule,
     ProfilRoutingModule,
-    BookingVehiclesModule
-  ]
+     NgbCarouselModule,
+    FormsModule,
+    NgbDatepickerModule,
+    NgbTimepickerModule,
+    SharedModule
+  ],
+  providers: [NgbCarouselConfig]
 })
 export class ProfilModule { }
