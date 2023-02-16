@@ -7,6 +7,7 @@ import { ProfilPageComponent } from './profil-page/profil-page.component';
 import {
   BookingVehiclesComponent
 } from "./components/booking-vehicles/components/booking-vehicles/booking-vehicles.component";
+import { BookingCarpoolingComponent } from './components/booking-carpooling/components/booking-carpooling/booking-carpooling.component';
 
 const routes: Routes = [
   { path: '', component: ProfilPageComponent ,
@@ -14,7 +15,8 @@ const routes: Routes = [
     { path: '', component: HomeComponent},
     { path: 'booking', component: BookingComponent},
     { path: 'carpooling', component: CarpoolingComponent},
-    { path: 'booking-vehicles', component: BookingVehiclesComponent}
+    { path: 'booking-vehicles', component: BookingVehiclesComponent},
+    { path: 'booking-carpoolings', component: BookingCarpoolingComponent}
   ]},
 ];
 
