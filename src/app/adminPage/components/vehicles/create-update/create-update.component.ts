@@ -15,11 +15,12 @@ export class CreateUpdateVehicleComponent implements OnInit {
 
 
   vehicleForm!: FormGroup;
-vehicle: Vehicle = new Vehicle;
-updateVehicleSubscription!: Subscription;
-vehicleId: any;
-faceSnapPreview$!: Observable<Vehicle>;
-
+  vehicle: Vehicle = new Vehicle;
+  updateVehicleSubscription!: Subscription;
+  vehicleId: any;
+  faceSnapPreview$!: Observable<Vehicle>;
+  changeSnapshot!: string;
+  fromUpdate: boolean = false;
   // id!: number;
   // isNew: Boolean = false;
 
@@ -33,22 +34,41 @@ faceSnapPreview$!: Observable<Vehicle>;
   }
 
   ngOnInit(): void {
-//     this.vehicle = this.route.snapshot.params['vehicle'];
-// console.log('teste recéption objet', this.vehicle)
 
-      // this.formBuilderAddVehicle();
+    this.getBooleanFromWhere();
 
+    this.fromUpdateOrFromAdd();
 
-this.getVehicleToUpdate();
-console.log('vehicle à modifier : ' , this.vehicle.id)
-this.vehicleId = this.vehicle.id;
-this.updateVehicleGet();
-this.faceSnapPreview$ = this.vehicleForm.valueChanges;
+    this.faceSnapPreview$ = this.vehicleForm.valueChanges;
 
   }
 
+  getBooleanFromWhere() {
+    this.changeSnapshot = this.route.snapshot.params['fromUpdate']; //récupérer l'info à savoir si on modifie ou ajoute
+
+    if (this.changeSnapshot == 'true') {  // définir la variable à true si on vient pour modifier un véhicule
+      this.fromUpdate = true
+    } else {
+      this.fromUpdate = false
+    }
+  }
+
+
+  fromUpdateOrFromAdd() {
+
+    if (this.fromUpdate) {
+     this.getVehicleToUpdate();
+
+      this.vehicleId = this.vehicle.id;
+      this.updateVehicleGet();
+
+    } else {
+      this.formBuilderAddVehicle();
+    }
+  }
+
   onSubmit(): void {
-    console.log(' objet ajouter', this.vehicleForm.value);
+    console.log(' objet ajouté ou modifié', this.vehicleForm.value);
   }
 
 
@@ -74,6 +94,7 @@ this.faceSnapPreview$ = this.vehicleForm.valueChanges;
   addVehicle(vehicle: Vehicle){
    vehicle.id = 0;
    this.vehiclesWebService.addVehicle(vehicle).subscribe();
+   this.router.navigate(['admin/vehicles'])
   };
 
 
@@ -113,9 +134,6 @@ updateVehicleGet() {
       console.log(data)
     });
     };
-
-
-
 
 
     private ngOnDestroy() {      // obligatoire dans chaque onglet dès qu'on a une variable : Subscription, va fermer l'observable à la fermeture de l'onglet

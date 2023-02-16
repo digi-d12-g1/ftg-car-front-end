@@ -5,7 +5,7 @@
     <h5 class="card-title">{{ employee.username }}</h5>
     <div class="card-footer">
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-primary me-md-2" type="button" [routerLink]="['create-update']"
+        <button class="btn btn-primary me-md-2" type="button" [routerLink]="['create-update', true]"
           (click)="updateEmployee( employee )">
           Modifier
         </button>

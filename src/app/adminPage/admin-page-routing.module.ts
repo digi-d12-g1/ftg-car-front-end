@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateUpdateEmployeeComponent } from './components/employees/create-update/create-update.component';
-import { ListEmployeesComponent } from './components/employees/list/listEmployees.component';
-import { CreateUpdateVehicleComponent } from './components/vehicles/create-update/create-update.component';
 import { ListVehiclesComponent } from './components/vehicles/list/listVehicles.component';
-import { AdminPageComponent } from './admin-page/admin-page.component';
 import { HomeComponent } from './components/home/home.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { CreateUpdateVehicleComponent } from './components/vehicles/create-update/create-update.component';
+import { ListEmployeesComponent } from './components/employees/list/listEmployees.component';
+import { CreateUpdateEmployeeComponent } from './components/employees/create-update/create-update.component';
 
 
 const routes: Routes = [{
@@ -23,7 +23,7 @@ const routes: Routes = [{
     component: ListVehiclesComponent
     },
     {
-      path: 'vehicles/create-update',
+      path: 'vehicles/create-update/:fromUpdate',
       component: CreateUpdateVehicleComponent
     },
     {
@@ -31,7 +31,7 @@ const routes: Routes = [{
       component: ListEmployeesComponent,
     },
     {
-      path: 'employees/create-update',
+      path: 'employees/create-update/:fromUpdate',
       component: CreateUpdateEmployeeComponent
     }
   ]
