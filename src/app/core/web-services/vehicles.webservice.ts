@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { Vehicle } from 'src/app/shared/models/vehicle';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {Vehicle} from 'src/app/shared/models/vehicle';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,6 @@ import { Vehicle } from 'src/app/shared/models/vehicle';
 export class VehiclesWebService {
 
 urlBack: string;
-any: any;
 
   constructor(private http: HttpClient) {
     this.urlBack = 'http://localhost:4444/api/vehicles/';
@@ -18,7 +17,12 @@ any: any;
   ////////////////////////////////////////////// Find All ///////////////////////////////////////////////////
 
   getAllVehicles(): Observable<Vehicle[]>{
-    return this.http.get<Vehicle[]>(this.urlBack + 'findAll');
+  return this.http.get<Vehicle[]>(this.urlBack + 'findAll');
+  }
+
+  getAllVehiclesAvailableForBooking(departure: Date, arrival: Date) {
+    let url = this.urlBack + `booking/${departure}/${arrival}`
+    return this.http.get<Vehicle[]>(url)
   }
 
   ////////////////////////////////////////////// AddVehicle ///////////////////////////////////////////////////

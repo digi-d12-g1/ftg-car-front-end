@@ -1,33 +1,31 @@
+import { TokenStorageService } from './auth/services/token-storage.service';
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AdminPageComponent} from '../adminPage/components/admin-page/admin-page.component';
-import {VehiclesListComponent} from "../booking-vehicles/components/vehicles-list/vehicles-list.component";
-import {AuthComponent} from "./auth/auth.component";
+import {AuthComponent} from "./auth/components/auth.component";
+import { GuardComponent } from './auth/guard/guard.component';
+import { AdminGuardComponent } from './auth/guard/guardAdmin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
-    // TODO : revoir ce path ultérieurement
-    path: '',
+    path: 'auth/login',
     component: AuthComponent
   },
   {
     path: 'admin',
     component: AdminPageComponent,
+    canActivate: [AdminGuardComponent],
     loadChildren: () => import('../adminPage/admin-page.module').then(m => m.AdminPageModule)
   },
   {
-    path: 'booking',
-    component: VehiclesListComponent,
-    loadChildren: () => import('../booking-vehicles/booking-vehicles.module').then(m => m.BookingVehiclesModule)
-  },
-  {
     path: 'profil',
+    canActivate: [GuardComponent],
     loadChildren: () => import('../profil/profil.module').then(m => m.ProfilModule)
   },
   {
     path: '',
-    redirectTo: '',
+    redirectTo: 'auth/login',
     pathMatch: 'full'
   },
   {

@@ -45,6 +45,19 @@
       />
     </div>
 
+    <div class="form-check">
+      <label class="form-check-label" for="isAdmin"> Administrateur? </label>
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="isAdmin"
+        formControlName="isAdmin"
+        [(ngModel)]="employee.isAdmin"
+        [checked]="employee.isAdmin == true"
+        [defaultValue]="employee.isAdmin == false"
+      />
+    </div>
+
     <div class="action-buttons">
       <button
         type="submit"

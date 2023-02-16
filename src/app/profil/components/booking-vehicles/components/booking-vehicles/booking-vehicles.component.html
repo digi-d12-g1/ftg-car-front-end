@@ -1,0 +1,74 @@
+<div class="date-selection">
+  <h3>Réserver une voiture</h3>
+  <form class="form-container" (ngSubmit)="searchBooking()">
+    <div class="date-container">
+      <div class="date-pick">
+        <p class="title">Début</p>
+        <input
+          placeholder="Date de début"
+          name="start"
+          [(ngModel)]="startDate"
+          (ngModelChange)="checkDate()"
+          [markDisabled]="checkIfStartDateNotPassed"
+          readonly
+          ngbDatepicker
+          #start="ngbDatepicker"
+        />
+        <button class="btn btn-outline-secondary bi bi-calendar"
+                (click)="start.toggle()"
+                type="button">
+        </button>
+        <ngb-timepicker
+          [(ngModel)]="startTime"
+          [readonlyInputs]="true"
+          [ngModelOptions]="{standalone: true, updateOn: 'change'}">
+        </ngb-timepicker>
+      </div>
+      <div class="line"></div>
+      <div class="date-pick">
+        <p class="title end">Fin</p>
+        <input
+          placeholder="Date de fin"
+          name="end"
+          [(ngModel)]="endDate"
+          (ngModelChange)="checkDate()"
+          [minDate]="startDate"
+          readonly
+          ngbDatepicker
+          #end="ngbDatepicker"
+        />
+        <button [disabled]="!startDate" class="btn btn-outline-secondary bi bi-calendar"
+                (click)="end.toggle()"
+                type="button">
+        </button>
+        <ngb-timepicker
+          [(ngModel)]="endTime"
+          [readonlyInputs]="true"
+          [ngModelOptions]="{standalone: true, updateOn: 'change'}">
+        </ngb-timepicker>
+      </div>
+    </div>
+    <button type="submit">Rechercher</button>
+  </form>
+</div>
+
+<div *ngIf="startTimeError || endTimeError" class="error-container alert alert-danger" role="alert">
+  <p *ngIf="startTimeError" class="error-message">
+    L'heure de départ choisie ne peut pas être inférieure à l'heure actuelle
+  </p>
+  <p *ngIf="endTimeError" class="error-message">
+    L'heure de fin choisie ne peut pas être inférieure ou égale à l'heure de départ
+  </p>
+</div>
+
+<div class="separator">
+  <div class="line"></div>
+</div>
+
+<app-vehicles-list-booking
+  [vehicles]="vehicles"
+  [locationStart]="locationStart"
+  [locationEnd]="locationEnd"
+  [errors]="errors">
+</app-vehicles-list-booking>
+

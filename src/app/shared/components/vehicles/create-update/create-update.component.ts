@@ -72,15 +72,15 @@ this.faceSnapPreview$ = this.vehicleForm.valueChanges;
 }
 
   addVehicle(vehicle: Vehicle){
+   vehicle.id = 0;
    this.vehiclesWebService.addVehicle(vehicle).subscribe();
-   };
+  };
 
 
   ////////////////////////////////////////////// Update Vehicle GET ///////////////////////////////////////////////////
   private getVehicleToUpdate() {    // méthode observable pour récupérer le vicule à modifier de la liste
     this.updateVehicleSubscription = this.updateVehicleService.vehicleService.subscribe( (data: Vehicle) => {
       this.vehicle = data;
-
     }
   );
 }
@@ -108,7 +108,10 @@ updateVehicleGet() {
 
   updateVehiclePost(vehicle: Vehicle){
     vehicle.id = this.vehicleId // on rajoute l'id de l'objet reçu grâce au subject Behavior sinon pas d'id en venant du template
-    this.vehiclesWebService.updateVehicle(vehicle).subscribe();
+    this.vehiclesWebService.updateVehicle(vehicle).subscribe( data => {
+      this.router.navigate(['admin/vehicles'])
+      console.log(data)
+    });
     };
 
 

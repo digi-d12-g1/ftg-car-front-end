@@ -1,0 +1,22 @@
+.admin-list-employee-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 10ex;
+    padding-bottom: 10ex;
+    gap: 5ex;
+
+    .employee {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+
+        width: 50ex;
+        height: 20ex;
+        border-radius: 2ex;
+        background-color: #D4E8F4;
+    }
+}
