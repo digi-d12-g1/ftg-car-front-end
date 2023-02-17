@@ -25,7 +25,7 @@ fromUpdate: boolean = false;
   }
 
   ngOnInit(): void {
-    this.fromUpdate = this.route.snapshot.params['fromUpdate'];
+    // this.fromUpdate = this.route.snapshot.params['fromUpdate'];
     this.getAllEmployees();
   }
 

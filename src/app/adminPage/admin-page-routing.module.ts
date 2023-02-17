@@ -31,7 +31,7 @@ const routes: Routes = [{
       component: ListEmployeesComponent,
     },
     {
-      path: 'employees/create-update/:fromUpdate',
+      path: 'employees/create-update',
       component: CreateUpdateEmployeeComponent
     }
   ]
