@@ -1,0 +1,119 @@
+.create-carpooling-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    gap: 2ex;
+    margin-top: 10ex;
+    padding-bottom: 10ex;
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        width: 100%;
+        gap: 5ex;
+        
+        .date-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            
+            gap: 1ex;
+            width: 100%;
+
+            .date-pick {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1ex;
+                padding: 1ex;
+
+            }
+        }
+
+        
+    }
+
+    .adress-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        
+        gap: 1ex;
+        width: 100%;
+
+        .adress-pick {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1ex;
+            padding: 1ex;
+        }
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        
+        margin-top: 5ex;
+        gap: 1ex;
+        width: 100%;
+
+        button {
+            width: 20ex;
+            height: 4ex;
+            border: 0.2ex solid;
+            border-radius: 1ex;
+            padding: 0 1.5ex 0 1.5ex;
+            font-size: 2ex;
+        }
+
+        .publish {
+            border-color: #105026;
+            background: #9BD192;
+            color: #105026;
+        }
+
+        .cancel {
+            border-color: #B80000;
+            background: #FF9CA8;
+            color: #B80000;
+        }
+
+    }
+
+      h5 {
+        padding: 0;
+        margin: 0;
+      }
+
+      hr {
+        width: 80%;
+        margin: 0 0 1ex 0;
+        border: 1px solid #0055A5;
+        opacity: 1;
+      }
+
+      input {
+        height: 4ex;
+        border: 0.1ex solid #0055A5;
+        border-radius: 2ex;
+        padding: 0 1.5ex 0 1.5ex;
+        font-size: 2ex;
+    }
+      
+}

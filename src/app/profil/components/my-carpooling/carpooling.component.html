@@ -12,6 +12,10 @@
     </header>
     <main>
         <aside *ngIf="driverOrNot" id="Driver">
+            <button class="add" routerLink="/profil/create-carpooling">
+                <img src="../../../assets/img/add.png">
+                <p>Créer un covoiturage</p>
+            </button>
             <h3><img src="../../../assets/img/play.png"> En cours</h3>
             <button class="current" *ngFor="let advert of advertCarpoolingCurrentList" (click)="getCarpooling(advert)">
                 <p>{{ advert.departure }}</p>
@@ -22,6 +26,10 @@
             </button>
         </aside>
         <aside *ngIf="!driverOrNot" id="Not">
+            <button class="add" routerLink="/profil/create-carpooling">
+                <img src="../../../assets/img/add.png">
+                <p>Créer un covoiturage</p>
+            </button>
             <h3><img src="../../../assets/img/play.png"> En cours</h3>
             <button class="current" *ngFor="let advert of bookingAdvertCarpoolingCurrentList"
                 (click)="getCarpooling(advert)">
