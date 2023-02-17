@@ -10,7 +10,7 @@ import { AdvertCarpoolingWebService } from '../../../core/web-services/advert-ca
 })
 export class CarpoolingComponent implements OnInit {
 
-  idUser = this.tokenStorageService.getUser()?.id;  
+  idUser = this.tokenStorageService.getUser()?.id;
   advertCarpoolingList: AdvertCarpooling[] = [];
   advertCarpoolingFinishList: AdvertCarpooling[] = [];
   advertCarpoolingCurrentList: AdvertCarpooling[] = [];
@@ -23,8 +23,8 @@ export class CarpoolingComponent implements OnInit {
     constructor(private advertCarpoolingWebService: AdvertCarpoolingWebService, private tokenStorageService: TokenStorageService) {}
 
     ngOnInit(): void {
-      this.AdvertgetAllCarpoolings();
-      this.AdvertgetAllBookingCarpoolings();
+      this.AdvertgetAllCarpoolings(); // chauffeur
+      this.AdvertgetAllBookingCarpoolings(); // passager
     }
 
     //call splitList() when the list of advert carpooling is updated
@@ -36,19 +36,19 @@ export class CarpoolingComponent implements OnInit {
     splitList() {
       const today = new Date();
       this.advertCarpoolingFinishList = this.advertCarpoolingList.filter(advert => {
-        const advertDate = new Date(advert.departure!);      
+        const advertDate = new Date(advert.departure!);
         return advertDate < today;
       });
       this.advertCarpoolingCurrentList = this.advertCarpoolingList.filter(advert => {
-        const advertDate = new Date(advert.departure!);      
+        const advertDate = new Date(advert.departure!);
         return advertDate > today;
       });
       this.bookingAdvertCarpoolingFinishList = this.bookingAdvertCarpoolingList.filter(advert => {
-        const advertDate = new Date(advert.departure!);      
+        const advertDate = new Date(advert.departure!);
         return advertDate < today;
       });
       this.bookingAdvertCarpoolingCurrentList = this.bookingAdvertCarpoolingList.filter(advert => {
-        const advertDate = new Date(advert.departure!);      
+        const advertDate = new Date(advert.departure!);
         return advertDate > today;
       });
     }

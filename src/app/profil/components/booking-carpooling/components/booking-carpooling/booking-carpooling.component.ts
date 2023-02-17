@@ -18,7 +18,6 @@ export class BookingCarpoolingComponent implements OnInit {
 
   //Dates
   locationStart!: Date;
-  locationEnd!: Date;
   presentDate: NgbDateStruct = {
     year: PRESENT_UTC_DATE.getUTCFullYear(),
     month: PRESENT_UTC_DATE.getUTCMonth() + 1,
@@ -31,10 +30,7 @@ export class BookingCarpoolingComponent implements OnInit {
   }
   startDate!: NgbDateStruct;
   startTime!: NgbTimeStruct;
-  endDate!: NgbDateStruct;
-  endTime!: NgbTimeStruct;
 
-  endTimeError: boolean = false;
   startTimeError: boolean = false;
   errors: boolean = false;
 
@@ -43,7 +39,7 @@ export class BookingCarpoolingComponent implements OnInit {
 
   ngOnInit(): void {
     this.initNgbDates();
-    this.getAdvertCarpoolingIfAvailable(this.locationStart, this.locationEnd);
+    this.getAdvertCarpoolingIfAvailable(this.locationStart);
   }
 
   /**
@@ -57,8 +53,6 @@ export class BookingCarpoolingComponent implements OnInit {
 
     this.startTime = this.presentTime;
     this.startDate = this.presentDate;
-    this.endDate = this.startDate;
-    this.endTime = {hour: endHour, minute: endMinutes, second: 0};
 
     // date type objects
     this.initDates();
@@ -69,9 +63,13 @@ export class BookingCarpoolingComponent implements OnInit {
    * @param departure the location start date
    * @param arrival the location end date
    */
-  public getAdvertCarpoolingIfAvailable(departure: Date, arrival: Date) {
-    this.advertCarpoolingWebService.getAllAdvertCarpoolingsBetweenDates(departure, arrival).subscribe(
-      data => this.advertCarpoolings = data
+  public getAdvertCarpoolingIfAvailable(departure: Date) {
+    this.advertCarpoolingWebService.getAllAdvertCarpoolingsBetweenDates(departure).subscribe(
+      data => {
+        this.advertCarpoolings = data;
+        console.log('recup advert car pooling', data);
+      }
+
     )
   }
 
@@ -82,33 +80,15 @@ export class BookingCarpoolingComponent implements OnInit {
   private initDates() {
     this.locationStart = new Date(Date.UTC(
       this.startDate.year,
-      this.startDate.month - 1,
+      this.startDate.month,
       this.startDate.day,
-      this.startTime.hour - 1,
+      this.startTime.hour,
       this.startTime.minute
     ))
 
-    this.locationEnd = new Date(Date.UTC(
-      this.endDate.year,
-      this.endDate.month - 1,
-      this.endDate.day,
-      this.endTime.hour - 1,
-      this.endTime.minute
-    ))
   }
 
 
-  /**
-   * Assure that ending date is always equal to starting date or above
-   */
-  checkDate() {
-    if ((this.endDate.year < this.startDate.year ||
-      (this.endDate.year === this.startDate.year && this.endDate.month < this.startDate.month) ||
-      (this.endDate.year === this.startDate.year && this.endDate.month === this.startDate.month &&
-        this.endDate.day < this.startDate.day))) {
-      this.endDate = this.startDate
-    }
-  }
 
   /**
    * Used for Ngb Date to disable selection of dates interior to present date
@@ -131,19 +111,17 @@ export class BookingCarpoolingComponent implements OnInit {
   searchBooking() {
     this.initDates();
 
-    // Time error checks
-    const sameDay = JSON.stringify(this.startDate) === JSON.stringify(this.endDate);
-    this.endTimeError = sameDay ? (this.endTime.hour <= this.startTime.hour) : false;
 
     const presentDay = JSON.stringify(this.startDate) === JSON.stringify(this.presentDate);
     this.startTimeError = presentDay ? (this.startTime.hour < this.presentTime.hour) : false;
 
     this.errors = true;
 
-    // Fetch available vehicles
-    if(!this.endTimeError && !this.startTimeError) {
+     // Fetch available vehicles
+     if(!this.startTimeError) {
       this.errors = false;
-      this.getAdvertCarpoolingIfAvailable(this.locationStart, this.locationEnd);
+      this.getAdvertCarpoolingIfAvailable(this.locationStart);
     }
+
   }
 }

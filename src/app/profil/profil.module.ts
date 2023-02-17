@@ -12,6 +12,7 @@ import { NgbCarouselConfig, NgbCarouselModule, NgbDatepickerModule, NgbTimepicke
 import { SharedModule } from '../shared/shared.module';
 import { VehiclesListComponent } from './components/booking-vehicles/components/vehicles-list/vehicles-list.component';
 import { BookingCarpoolingComponent } from './components/booking-carpooling/components/booking-carpooling/booking-carpooling.component';
+import { CarpoolingsListComponent } from './components/booking-carpooling/components/carpoolings-list/carpoolings-list.component';
 
 
 @NgModule({
@@ -22,7 +23,9 @@ import { BookingCarpoolingComponent } from './components/booking-carpooling/comp
     ProfilPageComponent,
     VehiclesListComponent,
     BookingVehiclesComponent,
-    BookingCarpoolingComponent
+    BookingCarpoolingComponent,
+    CarpoolingsListComponent
+
   ],
   imports: [
     CommonModule,

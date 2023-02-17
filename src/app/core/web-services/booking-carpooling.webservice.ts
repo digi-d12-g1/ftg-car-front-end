@@ -25,4 +25,10 @@ export class BookingCarpoolingWebService {
     this.httpClient.post(this.baseUrl + '/book', booking).subscribe();
   }
 
+
+  // find by id employee
+  getAllBookingCarpoolingWithIdEmployee(idEmployee: number) {
+    return this.httpClient.get<BookingCarpooling[]>(this.baseUrl + '/findByEmployee/' + idEmployee);
+  }
+
 }
