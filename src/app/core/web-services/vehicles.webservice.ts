@@ -35,7 +35,6 @@ urlBack: string;
     ////////////////////////////////////////////// UpdateVehicle ///////////////////////////////////////////////////
 
     updateVehicle(updateVehicle: Vehicle) {
-      console.log('Web service id update', updateVehicle )
       return this.http.put<Vehicle>(this.urlBack + 'update/', updateVehicle ) ;
     }
 

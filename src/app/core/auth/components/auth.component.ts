@@ -83,7 +83,6 @@ export class AuthComponent implements OnInit {
   private redirectToAdminOrUser(employeeFromBdd: Employee) { // méthode pour créer token admin ou profil pour contrôle d'accès des pages
 
     if (employeeFromBdd.isAdmin) {
-      console.log('coucoucoucocuocuocu')
       this.router.navigate(['/admin'])
       this.tokenStorage.saveToken('admin');
     } else {

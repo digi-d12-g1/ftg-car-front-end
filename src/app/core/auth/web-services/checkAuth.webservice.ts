@@ -37,7 +37,6 @@ export class CheckAuthWebService {
   }
 
   private isConnect(answer: Employee) {
-    console.log('méthode token save user', answer);
     return this.tokenStorageService.saveUser(answer);
   }
 }
