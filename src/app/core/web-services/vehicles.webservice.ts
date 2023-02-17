@@ -9,9 +9,11 @@ import {Vehicle} from 'src/app/shared/models/vehicle';
 export class VehiclesWebService {
 
 urlBack: string;
+urlBackCarpooling: string;
 
   constructor(private http: HttpClient) {
     this.urlBack = 'http://localhost:4444/api/vehicles/';
+    this.urlBackCarpooling = 'http://localhost:4444/api/advert-carpoolings/';
   }
 
   ////////////////////////////////////////////// Find All ///////////////////////////////////////////////////
@@ -23,6 +25,11 @@ urlBack: string;
   getAllVehiclesAvailableForBooking(departure: Date, arrival: Date) {
     let url = this.urlBack + `booking/${departure}/${arrival}`
     return this.http.get<Vehicle[]>(url)
+  }
+
+  getAllAdvertCarpoolingsBetweenDates(dateBegin: Date){
+    let url = this.urlBackCarpooling + `findAllBeginDate/${dateBegin}`;
+      return this.http.get<any[]>(url);
   }
 
   ////////////////////////////////////////////// AddVehicle ///////////////////////////////////////////////////

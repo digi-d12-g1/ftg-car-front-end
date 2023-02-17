@@ -26,6 +26,7 @@ test:any;
   }
 
   getAllAdvertCarpoolingsBetweenDates(dateBegin: Date){
-      return this.http.get<any>(this.urlBack + `findAllBeginDate/${dateBegin}`);
+    let url = this.urlBack + `findAllBeginDate/${dateBegin}`;
+      return this.http.get<any[]>(url);
   }
 }

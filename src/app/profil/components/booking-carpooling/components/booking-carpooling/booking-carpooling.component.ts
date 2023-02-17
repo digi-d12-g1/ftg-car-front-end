@@ -34,7 +34,7 @@ export class BookingCarpoolingComponent implements OnInit {
   startTimeError: boolean = false;
   errors: boolean = false;
 
-  constructor(private advertCarpoolingWebService: AdvertCarpoolingWebService) {
+  constructor(private advertCarpoolingWebService: AdvertCarpoolingWebService, private vehiclesWebService: VehiclesWebService) {
   }
 
   ngOnInit(): void {
@@ -64,7 +64,7 @@ export class BookingCarpoolingComponent implements OnInit {
    * @param arrival the location end date
    */
   public getAdvertCarpoolingIfAvailable(departure: Date) {
-    this.advertCarpoolingWebService.getAllAdvertCarpoolingsBetweenDates(departure).subscribe(
+    this.vehiclesWebService.getAllAdvertCarpoolingsBetweenDates(departure).subscribe(
       data => {
         this.advertCarpoolings = data;
         console.log('recup advert car pooling', data);

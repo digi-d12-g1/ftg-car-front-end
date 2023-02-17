@@ -69,7 +69,8 @@ export class BookingVehiclesComponent implements OnInit {
    */
   public getVehiclesIfAvailable(departure: Date, arrival: Date) {
     this.vehicleWebService.getAllVehiclesAvailableForBooking(departure, arrival).subscribe(
-      data => this.vehicles = data
+      data => {this.vehicles = data;
+      console.log(data)}
     )
   }
 
