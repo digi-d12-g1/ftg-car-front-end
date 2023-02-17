@@ -61,7 +61,7 @@
         height: 60%;
         width: 100%;
 
-        aside {
+        aside {            
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -72,6 +72,24 @@
             border-right: 0.3ex solid #d4e8f4;
             padding: 0 2ex 0 2ex;
             gap: 2ex;
+            
+            .add {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+
+                gap: 2ex;
+                background-color: white;
+
+                p {
+                    padding: 0;
+                    margin: 0;
+                    font-size: 2ex;
+                    font-weight: 500;
+                }
+            }
+
 
             h3 {
                 padding: 0;

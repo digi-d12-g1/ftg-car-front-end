@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbCarouselConfig, NgbCarouselModule, NgbDatepickerModule, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from '../shared/shared.module';
 import { VehiclesListComponent } from './components/booking-vehicles/components/vehicles-list/vehicles-list.component';
+import { CreateCarpoolingComponent } from './components/create-carpooling/create-carpooling.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { VehiclesListComponent } from './components/booking-vehicles/components/
     CarpoolingComponent,
     ProfilPageComponent,
     VehiclesListComponent,
-    BookingVehiclesComponent
+    BookingVehiclesComponent,
+    CreateCarpoolingComponent
   ],
   imports: [
     CommonModule,

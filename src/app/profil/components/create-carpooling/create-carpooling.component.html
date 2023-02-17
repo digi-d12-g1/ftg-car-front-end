@@ -1,0 +1,58 @@
+<div class="create-carpooling-container">
+    <header>
+        <h1>Creation de covoiturage</h1>
+    </header>
+
+    <!-- create a form with street, city and region for a departure adress and arrival adress with  -->
+    <form class="form-container">
+        <div class="adress-container">
+            <div class="adress-pick">
+                <h5>D'où partez-vous ?</h5>
+                <hr>
+                <input type="text" placeholder="Adresse de départ">
+                <input type="text" placeholder="Ville de départ">
+                <input type="text" placeholder="Région de départ">
+            </div>
+            <div class="adress-pick">
+                <h5>Où allez-vous ?</h5>
+                <hr>
+                <input type="text" placeholder="Adresse d'arrivée">
+                <input type="text" placeholder="Ville d'arrivée">
+                <input type="text" placeholder="Région d'arrivée">
+            </div>
+        </div>
+        <div class="date-container">
+            <div class="date-pick">
+                <label>Date de départ :</label>
+                <div>
+                    <input placeholder="Date de début" name="start" readonly ngbDatepicker #start="ngbDatepicker" />
+                    <button class="btn btn-outline-secondary bi bi-calendar" (click)="start.toggle()" type="button">
+                    </button>
+                </div>
+                <label>Heure de départ :</label>
+                <ngb-timepicker [readonlyInputs]="true">
+                </ngb-timepicker>
+            </div>
+            <div class="date-pick">
+                <label>Kilomètre :</label>
+                <input type="number">
+                <label>Durée :</label>
+                <input type="time">
+            </div>
+        </div>
+        <div class="adress-container">
+            <div class="adress-pick">
+                <h5>Renseigner votre véhicule</h5>
+                <hr>
+                <input type="text" placeholder="Marque">
+                <input type="text" placeholder="Modèle">
+                <input type="text" placeholder="Immatriculation">
+            </div>
+        </div>
+    </form>
+    <div class="button-container">
+        <button routerLink="/profil" class="cancel">Annuler</button>
+        <button class="publish">Publier</button>
+    </div>
+
+</div>
