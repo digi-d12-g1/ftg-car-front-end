@@ -4,46 +4,23 @@
     <div class="date-container">
       <div class="date-pick">
         <p class="title">Début</p>
-        <input
-          placeholder="Date de début"
-          name="start"
-          [(ngModel)]="startDate"
-          (ngModelChange)="checkDate()"
-          [markDisabled]="checkIfStartDateNotPassed"
-          readonly
-          ngbDatepicker
-          #start="ngbDatepicker"
-        />
-        <button class="btn btn-outline-secondary bi bi-calendar"
-                (click)="start.toggle()"
-                type="button">
+        <input placeholder="Date de début" name="start" [(ngModel)]="startDate" (ngModelChange)="checkDate()"
+          [markDisabled]="checkIfStartDateNotPassed" readonly ngbDatepicker #start="ngbDatepicker" />
+        <button class="btn btn-outline-secondary bi bi-calendar" (click)="start.toggle()" type="button">
         </button>
-        <ngb-timepicker
-          [(ngModel)]="startTime"
-          [readonlyInputs]="true"
+        <ngb-timepicker [(ngModel)]="startTime" [readonlyInputs]="true"
           [ngModelOptions]="{standalone: true, updateOn: 'change'}">
         </ngb-timepicker>
       </div>
       <div class="line"></div>
       <div class="date-pick">
         <p class="title end">Fin</p>
-        <input
-          placeholder="Date de fin"
-          name="end"
-          [(ngModel)]="endDate"
-          (ngModelChange)="checkDate()"
-          [minDate]="startDate"
-          readonly
-          ngbDatepicker
-          #end="ngbDatepicker"
-        />
-        <button [disabled]="!startDate" class="btn btn-outline-secondary bi bi-calendar"
-                (click)="end.toggle()"
-                type="button">
+        <input placeholder="Date de fin" name="end" [(ngModel)]="endDate" (ngModelChange)="checkDate()"
+          [minDate]="startDate" readonly ngbDatepicker #end="ngbDatepicker" />
+        <button [disabled]="!startDate" class="btn btn-outline-secondary bi bi-calendar" (click)="end.toggle()"
+          type="button">
         </button>
-        <ngb-timepicker
-          [(ngModel)]="endTime"
-          [readonlyInputs]="true"
+        <ngb-timepicker [(ngModel)]="endTime" [readonlyInputs]="true"
           [ngModelOptions]="{standalone: true, updateOn: 'change'}">
         </ngb-timepicker>
       </div>
@@ -65,10 +42,9 @@
   <div class="line"></div>
 </div>
 
-<app-carpoolings-list
+<!-- <app-carpoolings-list
   [advertCarpoolings]="advertCarpoolings"
   [locationStart]="locationStart"
   [locationEnd]="locationEnd"
   [errors]="errors">
-</app-carpoolings-list>
-
+</app-carpoolings-list> -->

@@ -12,11 +12,27 @@ import { BookingCarpoolingComponent } from './components/booking-carpooling/comp
 const routes: Routes = [
   { path: '', component: ProfilPageComponent ,
   children: [
-    { path: '', component: HomeComponent},
-    { path: 'booking', component: BookingComponent},
-    { path: 'carpooling', component: CarpoolingComponent},
-    { path: 'booking-vehicles', component: BookingVehiclesComponent},
-    { path: 'booking-carpoolings', component: BookingCarpoolingComponent}
+    {
+      path: '',
+      component: HomeComponent
+    },
+    {
+      path: 'booking',
+      component: BookingComponent
+    },
+
+    {
+      path: 'booking-vehicles',
+      component: BookingVehiclesComponent
+    },
+    {
+      path: 'carpooling',
+      component: CarpoolingComponent
+    },
+    {
+      path: 'booking-carpoolings',
+      component: BookingCarpoolingComponent
+    }
   ]},
 ];
 

@@ -1,10 +1,19 @@
 <nav class="navbar-container">
+
   <img class="logo" routerLink="/profil" src="../../../assets/img/logo-blue.png">
+
   <app-nav-button routerLink="/profil/booking-vehicles" text="Réserver une voiture"
     img="../../assets/img/car.png"></app-nav-button>
-  <app-nav-button text="Réserver un covoit" img="../../assets/img/group.png"></app-nav-button>
+
+  <app-nav-button routerLink="/profil/booking-carpoolings" text="Réserver un covoit"
+    img="../../assets/img/group.png"></app-nav-button>
+
   <p>Bonjour {{infoCoUser.username}}</p>
+
   <img (click)="logOut()" class="logout" src="../../../assets/img/logout.png">
+
   <img *ngIf="isAdmin" routerLink="/admin" class="admin" src="../../../assets/img/admin.png">
+
   <img routerLink="/profil" class="profil" src="../../../assets/img/profil.png">
+
 </nav>

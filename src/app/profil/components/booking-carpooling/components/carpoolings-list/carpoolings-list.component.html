@@ -5,11 +5,8 @@
     <p>De : {{ advertCarpooling.departureAdress }}</p>
     <p>Vers : {{ advertCarpooling.arrivalAdress }}</p>
     <p>Nombre de sièges dispos : {{ advertCarpooling.seatAvailable }}</p>
-    <button (click)="getBookingInfo(advertCarpooling)"
-            data-bs-toggle="modal"
-            data-bs-target="#createBookingModal"
-            type="button"
-            [disabled]="errors">Réserver
+    <button (click)="getBookingInfo(advertCarpooling)" data-bs-toggle="modal" data-bs-target="#createBookingModal"
+      type="button" [disabled]="errors">Réserver
     </button>
   </div>
 </div>
@@ -40,4 +37,3 @@
     </div>
   </div>
 </div> -->
-
