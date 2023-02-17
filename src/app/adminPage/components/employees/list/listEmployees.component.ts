@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeesWebService } from 'src/app/core/web-services/employees.webservice';
 import { Employee } from 'src/app/shared/models/employee';
 import { UpdateEmployeeService } from 'src/app/shared/services/update-employee/update-employee.service';
@@ -14,15 +14,18 @@ export class ListEmployeesComponent implements OnInit {
 
   employeeList: Employee[] = [];
   employeeId!: number;
+fromUpdate: boolean = false;
 
   constructor(
     private employeesWebService: EmployeesWebService,
     private updateEmployeeService: UpdateEmployeeService,
-    private router: Router) {
+    private router: Router,
+    private route: ActivatedRoute) {
 
   }
 
   ngOnInit(): void {
+    this.fromUpdate = this.route.snapshot.params['fromUpdate'];
     this.getAllEmployees();
   }
 
